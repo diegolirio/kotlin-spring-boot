@@ -1,0 +1,12 @@
+server:
+  port: 8070
+
+spring:
+  data:
+    mongodb:
+      authentication-database: kotlin
+      database: kotlin
+      host: 127.0.0.1
+      port: 27017
+      username: kotlin
+      password: kotlin
