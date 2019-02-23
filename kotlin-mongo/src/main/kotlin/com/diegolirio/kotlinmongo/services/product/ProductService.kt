@@ -3,22 +3,31 @@ package com.diegolirio.kotlinmongo.services.product
 import org.springframework.stereotype.Service
 import java.util.*
 
-@Service
-class ProductService(private val productRepository: ProductRepository) {
+interface ProductService {
 
-    fun getAll(): List<Product> {
+    fun getAll(): List<Product>
+    fun save(product: Product): Product
+    fun delete(id: String)
+    fun getById(id: String): Optional<Product>
+
+}
+
+@Service
+class ProductServiceImpl  (private val productRepository: ProductRepository) : ProductService {
+
+    override fun getAll(): List<Product> {
         return productRepository.findAll()
     }
 
-    fun save(product: Product): Product {
+    override fun save(product: Product): Product {
         return productRepository.save(product)
     }
 
-    fun delete(id: String) {
+    override fun delete(id: String) {
         productRepository.deleteById(id)
     }
 
-    fun getById(id: String): Optional<Product> {
+    override fun getById(id: String): Optional<Product> {
         return productRepository.findById(id)
     }
 
