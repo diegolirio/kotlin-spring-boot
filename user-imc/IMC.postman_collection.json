@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "142e1c4a-acd6-408b-a46a-22e08fa36914",
+		"name": "IMC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://c113d0e1-79d5-48a8-9085-92c09ae1072a.pub.cloud.scaleway.com:8090/user-imc/users",
+					"protocol": "http",
+					"host": [
+						"c113d0e1-79d5-48a8-9085-92c09ae1072a",
+						"pub",
+						"cloud",
+						"scaleway",
+						"com"
+					],
+					"port": "8090",
+					"path": [
+						"user-imc",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

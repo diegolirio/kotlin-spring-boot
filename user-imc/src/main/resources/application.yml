@@ -1,0 +1,56 @@
+spring:
+  profiles: default
+  application:
+    name: user-imc
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.mongo.embedded.EmbeddedMongoAutoConfiguration
+  data:
+    mongodb:
+      host: ${MONGO_HOST:ds135068.mlab.com}
+      port: ${MONGO_PORT:35068}
+#      repositories:
+#        enabled: true
+      database: ${MONGO_DATABASE:imc}
+      username: ${MONGO_USER:imcimc}
+      password: ${MONGO_PASSWORD:imc123}
+
+info:
+  component: user-imc
+
+server:
+  port: 8081
+
+eureka:
+  instance:
+    non-secure-port: ${NON_SECURE_PORT:8081}
+    hostname: ${DOMAIN_NAME:a6accad1-6f56-40c3-98b8-b7c0f9b003a5.pub.cloud.scaleway.com}
+  client:
+    serviceUrl:
+      defaultZone: ${DISCOVERY_URL:http://c113d0e1-79d5-48a8-9085-92c09ae1072a.pub.cloud.scaleway.com:8761/eureka/}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  file: logs/user-imc.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    ROOT: INFO
+    com:
+      logistic: INFO
+    org:
+      springframework:
+        web: INFO
+
+messages:
+  basename: messages
+  default:
+    country: BR
+    language: PT
+    encoding: UTF-8
+

@@ -1,0 +1,12 @@
+version: '3'
+services:
+    user-imc:
+        image: registry.springhome.com.br/user-imc:1.0.0
+        container_name: user-imc
+        restart: always
+        ports:
+            - 8081:8081
+        environment:
+            - NON_SECURE_PORT=8081
+            - DOMAIN_NAME=a6accad1-6f56-40c3-98b8-b7c0f9b003a5.pub.cloud.scaleway.com
+            - DISCOVERY_URL=http://c113d0e1-79d5-48a8-9085-92c09ae1072a.pub.cloud.scaleway.com:8761/eureka/
