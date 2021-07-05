@@ -1,0 +1,25 @@
+spring:
+  profiles: dev
+
+server:
+  port: 9500
+
+secret: ${VAULT_SECRET}
+
+#spring:
+#  datasource:
+#    driverClassName: org.h2.Driver
+#    password: '${h2.db.password}'
+#    url: '${h2.db.url}'
+#    username: '${h2.db.username}'
+#  h2:
+#    console:
+#      enabled: true
+#      path: /h2-console
+#  jpa:
+#    database-platform: org.hibernate.dialect.H2Dialect
+#    hibernate:
+#      ddl-auto: create-drop
+#    properties:
+#      hibernate:
+#        show_sql: true

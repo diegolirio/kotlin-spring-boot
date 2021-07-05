@@ -1,0 +1,44 @@
+
+spring:
+  application:
+    name: demo-vault
+
+  config:
+    activate:
+      on-profile: dev
+
+  cloud:
+    vault:
+      host: 127.0.0.1
+      kv:
+        enabled: true
+      port: 8200
+      scheme: http
+      token: 00000000-0000-0000-0000-000000000000
+
+#    import: vault://secret/demo-vault/dev
+#
+#  cloud.vault:
+#
+#    ssl:
+#      trust-store: classpath:/vault.jks
+#      trust-store-password: changeit
+#
+#    generic:
+#      enabled: true
+#      application-name: demo-vault
+#
+#    kv:
+#      enabled: true
+#      backend: kv
+#      application-name: demo-vault
+#
+#    token: s.DWyLPTAoiKcnlklWVhZPFjlY
+#    host: localhost
+#    port: 8200
+#    scheme: https
+#    uri: https://localhost:8200
+#    connection-timeout: 5000
+#    read-timeout: 15000
+#    config:
+#      order: -10

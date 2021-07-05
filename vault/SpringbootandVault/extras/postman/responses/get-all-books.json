@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "author": "Lucien Cremin III",
+    "genre": "Comic/Graphic Novel",
+    "publisher": "Library of America",
+    "title": "Tiger! Tiger!",
+    "quantity": 96,
+    "publishedOn": "2019-02-20T12:07:17.738"
+  },
+  {
+    "id": 2,
+    "author": "Nickie Bechtelar",
+    "genre": "Reference book",
+    "publisher": "Casemate Publishers",
+    "title": "Everything is Illuminated",
+    "quantity": 85,
+    "publishedOn": "2019-05-08T23:07:17.86"
+  },
+  {
+    "id": 3,
+    "author": "Lemuel Strosin",
+    "genre": "Textbook",
+    "publisher": "Harcourt Assessment",
+    "title": "Precious Bane",
+    "quantity": 58,
+    "publishedOn": "2019-11-15T02:07:17.865"
+  },
+  {
+    "id": 4,
+    "author": "Evelyne Gutkowski",
+    "genre": "Crime/Detective",
+    "publisher": "Mandrake Press",
+    "title": "The Way of All Flesh",
+    "quantity": 98,
+    "publishedOn": "2019-02-06T10:07:17.871"
+  },
+  {
+    "id": 5,
+    "author": "Willard Kessler",
+    "genre": "Biography/Autobiography",
+    "publisher": "Earthscan",
+    "title": "The Golden Bowl",
+    "quantity": 76,
+    "publishedOn": "2019-07-11T08:07:17.877"
+  },
+  {
+    "id": 6,
+    "author": "Edgar Heaney",
+    "genre": "Mythopoeia",
+    "publisher": "Kodansha",
+    "title": "The Moving Toyshop",
+    "quantity": 59,
+    "publishedOn": "2019-11-08T01:07:17.885"
+  },
+  {
+    "id": 7,
+    "author": "Daysi Schmeler",
+    "genre": "Folklore",
+    "publisher": "Holt McDougal",
+    "title": "Dulce et Decorum Est",
+    "quantity": 94,
+    "publishedOn": "2019-03-06T14:07:17.893"
+  },
+  {
+    "id": 8,
+    "author": "Camelia Leffler",
+    "genre": "Folklore",
+    "publisher": "Shambhala Publications",
+    "title": "The Millstone",
+    "quantity": 73,
+    "publishedOn": "2019-08-01T11:07:17.898"
+  },
+  {
+    "id": 9,
+    "author": "Lily Kautzer",
+    "genre": "Short story",
+    "publisher": "Palgrave Macmillan",
+    "title": "Edna O'Brien",
+    "quantity": 74,
+    "publishedOn": "2019-07-25T10:07:17.908"
+  },
+  {
+    "id": 10,
+    "author": "Ms. Malik Pfeffer",
+    "genre": "Humor",
+    "publisher": "Victor Gollancz Ltd",
+    "title": "Françoise Sagan",
+    "quantity": 85,
+    "publishedOn": "2019-05-08T23:07:17.914"
+  }
+]

@@ -1,0 +1,9 @@
+
+spring:
+  profile: dev
+  application:
+    name: demo-vault
+
+kotlin:
+  secret: ${KOTLIN_SECRET}
+

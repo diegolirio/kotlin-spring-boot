@@ -1,0 +1,14 @@
+-- browser url --
+http://127.0.0.1:8200/ui/
+
+-- sign into vault (using method as 'token')
+00000000-0000-0000-0000-000000000000
+
+-- navigate to the secrets engine
+1. add the new secrets
+2. example - 
+		path for the secret - springboot-vault
+		enter key pair data under the version data filed -
+			h2.db.password - <your_db_password>
+			h2.db.username - <your_db_password>
+			h2.db.url - <you_db_url>
