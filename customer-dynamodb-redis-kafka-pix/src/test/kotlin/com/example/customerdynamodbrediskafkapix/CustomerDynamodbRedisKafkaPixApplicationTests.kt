@@ -1,10 +1,10 @@
-package com.example.democustomerdynamodbrediskafkapix
+package com.example.customerdynamodbrediskafkapix
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class DemoCustomerDynamodbRedisKafkaPixApplicationTests {
+class CustomerDynamodbRedisKafkaPixApplicationTests {
 
 	@Test
 	fun contextLoads() {

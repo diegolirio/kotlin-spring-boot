@@ -1,11 +1,11 @@
-package com.example.democustomerdynamodbrediskafkapix
+package com.example.customerdynamodbrediskafkapix
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class DemoCustomerDynamodbRedisKafkaPixApplication
+class CustomerDynamodbRedisKafkaPixApplication
 
 fun main(args: Array<String>) {
-	runApplication<DemoCustomerDynamodbRedisKafkaPixApplication>(*args)
+	runApplication<CustomerDynamodbRedisKafkaPixApplication>(*args)
 }

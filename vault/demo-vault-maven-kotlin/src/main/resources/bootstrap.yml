@@ -12,6 +12,8 @@ spring:
       host: 127.0.0.1
       kv:
         enabled: true
+        backend: paginvest-shared-secrets
+        application-name: paginvest
       port: 8200
       scheme: http
       token: 00000000-0000-0000-0000-000000000000

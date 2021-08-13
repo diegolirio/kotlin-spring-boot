@@ -1,4 +1,5 @@
-package com.example.demofile
+package com.example.demofile.stockmarket
 
 class StockmarketValidation {
+
 }
