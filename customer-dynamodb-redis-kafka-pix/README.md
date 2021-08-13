@@ -39,8 +39,7 @@
       
 ## Utilizar o mesmo ID do cliente, valor e codigo-pix. Usar como teste de performance o Hey --> https://github.com/rakyll/hey
    
-## Aplicacao devera garantir a idempotencia da transacao, onde nao importa se é executado 
-1 ou 2 ou 15 requests, a aplicacao devera se comportar como recebesse somente 1 requisicao 
+## Aplicacao devera garantir a idempotencia da transacao, onde nao importa se é executado 1 ou 2 ou 15 requests, a aplicacao devera se comportar como recebesse somente 1 requisicao 
 
 
 
