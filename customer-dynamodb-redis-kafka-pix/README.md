@@ -41,7 +41,7 @@ Selecione `Gradle` e `Module SDK` (no caso do exemplo é SDK 11) e como Addition
    
 <img width="785" alt="Screen Shot 2021-08-13 at 14 10 09" src="https://user-images.githubusercontent.com/83074806/129395264-3623b273-6f3a-41ec-a797-b84fdacc14fd.png">
 
-Agora Diigite o nome do Seu Domain:   
+Agora Diigite o nome do Seu Module:   
 
 <img width="739" alt="Screen Shot 2021-08-13 at 14 10 47" src="https://user-images.githubusercontent.com/83074806/129395357-29a60322-d961-4df2-a2d0-7257088ae06b.png">
 
