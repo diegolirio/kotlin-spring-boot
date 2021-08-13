@@ -3,6 +3,9 @@
 ### Arquitetura de Codigo
 
 1. Separar aplicacao em 2 modulos Gradle `Application e Domain`
+
+
+
 > A ideia é que a application pensada em microservice ter tudo o
 >  que seria voltado para aplicacao receber as Entradas e Saidas de Dados 
 >  como API Rest/Http, Databases/Repository, Cache, Brokers e etc,
@@ -25,7 +28,7 @@ do cliente e o valor e o codigo-pix-de-destino
 5. Utilizar o mesmo ID do cliente, valor e codigo-pix. Usar como teste de performance o Hey --> https://github.com/rakyll/hey
    
 6. Aplicacao devera garantir a idempotencia da transacao, onde nao importa se é executado 
-1 ou 2 ou 15 requests, a aplicacao devera se comportar como recebesse somente 1 requisicao 
+1 ou 2 ou 15 requests, a aplicacao devera se comportar como tivesse recebido somente 1 requisicao 
 
 
 
