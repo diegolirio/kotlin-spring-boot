@@ -33,7 +33,7 @@
    
 ## Criar um CRUD com DynamoDB usando o localstack para simular a Infra AWS
    
-## Configurar Cacheable Spring com Redis no Controller para HttpMethods GET
+## Configurar Cacheable Spring com Redis no Controller para HttpMethods GET e nos POST, PUT, PATCH Evitar o Cache
    
 ## Criar um contexto Transacional Simulando um Envio Pix, utlizando Kafka com o ID 
 do cliente e o valor e o codigo-pix-de-destino
