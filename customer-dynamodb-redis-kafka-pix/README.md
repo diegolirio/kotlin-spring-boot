@@ -2,6 +2,22 @@
 
 ### Arquitetura de Codigo
 
+
+```
+|--- customer-app
+           |--- application
+                      |--- gateway/provider
+                      |--- entrypoint
+                      |--- producer/kafka
+                      |--- producer/kafka
+           |--- domain
+                   |--- UpdateCustomerUseCase.java
+                   |--- inputs
+                            |--- UpdateCustomerInput.java
+                   |--- outputs
+                            |--- CustomerServiceOutput.java
+```                                                       
+
 1. Separar aplicacao em 2 modulos Gradle `Application e Domain`
 > A ideia é que a application pensada em microservice ter tudo o
 >  que seria voltado para aplicacao receber as Entradas e Saidas de Dados 
