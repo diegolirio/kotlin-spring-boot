@@ -1,0 +1,8 @@
+
+amazon:
+  dynamodb:
+    endpoint: http://localhost:4569
+  aws:
+    accessKey: XXXXXXXXXXX
+    secretKey: MLABUtGIM5NofH5sd51866+XbtE6puAC
+    region: us-east-1

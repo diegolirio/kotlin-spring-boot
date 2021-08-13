@@ -15,5 +15,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	//runtimeOnly("io.micrometer:micrometer-registry-new-relic")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	implementation("com.amazonaws:aws-java-sdk-dynamodb:1.11.740")
+	implementation("com.amazonaws:aws-java-sdk-core:1.11.740")
 }
 
