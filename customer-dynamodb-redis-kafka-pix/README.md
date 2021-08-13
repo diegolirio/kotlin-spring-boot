@@ -9,7 +9,7 @@
                       |--- gateway/provider
                       |--- entrypoint
                       |--- producer/kafka
-                      |--- producer/kafka
+                      |--- cache
            |--- domain
                    |--- UpdateCustomerUseCase.java
                    |--- inputs
@@ -18,7 +18,7 @@
                             |--- CustomerServiceOutput.java
 ```                                                       
 
-1. Separar aplicacao em 2 modulos Gradle `Application e Domain`
+## Separar aplicacao em 2 modulos Gradle `Application e Domain`
 > A ideia é que a application pensada em microservice ter tudo o
 >  que seria voltado para aplicacao receber as Entradas e Saidas de Dados 
 >  como API Rest/Http, Databases/Repository, Cache, Brokers e etc,
@@ -31,19 +31,17 @@
 >  utlizando como IoC Outputs para saída para Infraestutura, o Domain 
 >  deve absorver todos os Principios SOLID.
    
-2. Criar um CRUD com DynamoDB usando o localstack para simular a Infra AWS
+## Criar um CRUD com DynamoDB usando o localstack para simular a Infra AWS
    
-3. Configurar Cacheable Spring com Redis no Controller para HttpMethods GET
+## Configurar Cacheable Spring com Redis no Controller para HttpMethods GET
    
-4. Criar um contexto Transacional Simulando um Envio Pix, utlizando Kafka com o ID 
+## Criar um contexto Transacional Simulando um Envio Pix, utlizando Kafka com o ID 
 do cliente e o valor e o codigo-pix-de-destino
       
-5. Utilizar o mesmo ID do cliente, valor e codigo-pix. Usar como teste de performance o Hey --> https://github.com/rakyll/hey
+## Utilizar o mesmo ID do cliente, valor e codigo-pix. Usar como teste de performance o Hey --> https://github.com/rakyll/hey
    
-6. Aplicacao devera garantir a idempotencia da transacao, onde nao importa se é executado 
+## Aplicacao devera garantir a idempotencia da transacao, onde nao importa se é executado 
 1 ou 2 ou 15 requests, a aplicacao devera se comportar como recebesse somente 1 requisicao 
-
-
 
 
 
