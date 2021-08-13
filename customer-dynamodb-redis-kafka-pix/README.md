@@ -19,17 +19,17 @@
 ```                                                       
 
 ## Separar aplicacao em 2 modulos Gradle `Application e Domain`
-> A ideia é que a application pensada em microservice ter tudo o
+> A ideia é que a `application` pensada em microservice ter tudo o
 >  que seria voltado para aplicacao receber as Entradas e Saidas de Dados
 >  como API Rest/Http, Databases/Repository, Cache, Brokers e etc,
 > tudo isso seria os Lados da aplicacao levando em consideração
 >  a imagem do Hexagono que simboliza a arquitetura...
 
-> Domain seria o coração da aplicação, protegido de frameworks
+> `Domain` seria o coração da aplicação, protegido de frameworks
 >  como Spring, não importando qual banco estaria usando e protegendo
 >  a regra de negócio com Contratos UseCase implementados por Inputs e
 >  utlizando como IoC os Outputs como Contrato para saída para Infraestutura, o Domain
->  deve absorver todos os Principios SOLID potencializando uma arquiteutra clean.
+>  deve absorver todos os Principios SOLID potencializando uma arquitetura clean.
 
 ## Criando gradle modules com DSL kotlin
 
