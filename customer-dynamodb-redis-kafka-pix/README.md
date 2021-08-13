@@ -35,8 +35,7 @@
    
 ## Configurar Cacheable Spring com Redis no Controller para HttpMethods GET e nos POST, PUT, PATCH Evitar o Cache
    
-## Criar um contexto Transacional Simulando um Envio Pix, utlizando Kafka com o ID 
-do cliente e o valor e o codigo-pix-de-destino
+## Criar um contexto Transacional Simulando um Envio Pix, utlizando Kafka com o ID do cliente e o valor e o codigo-pix-de-destino
       
 ## Utilizar o mesmo ID do cliente, valor e codigo-pix. Usar como teste de performance o Hey --> https://github.com/rakyll/hey
    
