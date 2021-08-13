@@ -158,14 +158,23 @@ services:
    
 Repository é acessada pelo [dataprovider](https://github.com/diegolirio/kotlin-spring-boot/tree/master/customer-dynamodb-redis-kafka-pix/application/src/main/kotlin/com/example/application/dataprovider).   
 
+---
 
 ### Configurar Cacheable Spring com Redis no Controller para HttpMethods GET e nos POST, PUT, PATCH Evitar o Cache
 
+---
+
 ### Criar um contexto Transacional Simulando um Envio Pix, utlizando Kafka com o ID do cliente e o valor e o codigo-pix-de-destino
+
+---
 
 ### Utilizar o mesmo ID do cliente, valor e codigo-pix. Usar como teste de performance o Hey --> https://github.com/rakyll/hey
 
+---
+
 ### Aplicacao devera garantir a idempotencia da transacao, onde nao importa se é executado 1 ou 2 ou 15 requests, a aplicacao devera se comportar como tivesse recebido somente 1 requisicao
+
+---
 
 
 
