@@ -28,8 +28,8 @@
 > Domain seria o coração da aplicação, protegido de frameworks
 >  como Spring, não importando qual banco estaria usando e protegendo
 >  a regra de negócio com Contratos UseCase implementados por Inputs e
->  utlizando como IoC Outputs para saída para Infraestutura, o Domain
->  deve absorver todos os Principios SOLID.
+>  utlizando como IoC os Outputs como Contrato para saída para Infraestutura, o Domain
+>  deve absorver todos os Principios SOLID potencializando uma arquiteutra clean.
 
 ## Criando gradle modules com DSL kotlin
 
