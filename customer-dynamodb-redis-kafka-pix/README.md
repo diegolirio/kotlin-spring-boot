@@ -137,6 +137,28 @@ dependencies {
 
 ### Criar um CRUD com DynamoDB usando o localstack para simular a Infra AWS
 
+Docker-Compose
+
+```yml
+version: "3"
+
+services:
+  localstack:
+    image: localstack/localstack:0.12.16
+    ports:
+      - "4566-4599:4566-4599"
+      - "8085:8080"
+    environment:
+      - SERVICES=dynamodb,s3
+    volumes:
+      - './.localstack:/tmp/localstack'
+```
+
+> Após subir os containers você pode verificar a saúde da sua infra `curl http://localhost:4566/health`.  
+   
+Repository é acessa pelo [dataprovider](https://github.com/diegolirio/kotlin-spring-boot/tree/master/customer-dynamodb-redis-kafka-pix/application/src/main/kotlin/com/example/application/dataprovider).   
+
+
 ### Configurar Cacheable Spring com Redis no Controller para HttpMethods GET e nos POST, PUT, PATCH Evitar o Cache
 
 ### Criar um contexto Transacional Simulando um Envio Pix, utlizando Kafka com o ID do cliente e o valor e o codigo-pix-de-destino
