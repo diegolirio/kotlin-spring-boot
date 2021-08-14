@@ -21,4 +21,11 @@ class CustomerRepository(
         return entity
     }
 
+    fun findById(id: String): CustomerEntity = dynamoDBMapper.load(domainClass(), id)
+
+    fun delete(entity: CustomerEntity): CustomerEntity {
+        dynamoDBMapper.delete(entity)
+        return entity
+    }
+
 }

@@ -58,7 +58,9 @@ class RedisConfig : CachingConfigurerSupport() {
     @Bean
     fun cacheConfigurations(): Map<String, RedisCacheConfiguration> {
         val caches = mutableMapOf<String, RedisCacheConfiguration>()
-        caches.putIfAbsent("CUSTOMERS_CACHE", longTimeRedisConfiguration())
+        // TODO
+        caches.putIfAbsent(CUSTOMERS_CACHE, longTimeRedisConfiguration())
+        caches.putIfAbsent(CUSTOMERS_BY_ID_CACHE, longTimeRedisConfiguration())
         return caches
     }
     
@@ -119,5 +121,10 @@ class RedisConfig : CachingConfigurerSupport() {
         override fun handleCacheClearError(exception: RuntimeException, cache: Cache) {
             log.warn("Unable to clean cache " + cache.name + " : " + exception.message)
         }
+    }
+
+    companion object {
+        const val CUSTOMERS_CACHE = "CUSTOMERS_CACHE"
+        const val CUSTOMERS_BY_ID_CACHE = "CUSTOMERS_BY_ID_CACHE"
     }
 }
