@@ -16,4 +16,9 @@ class CustomerRepository(
         return dynamoDBMapper.scan(domainClass(), DynamoDBScanExpression()) ?: listOf()
     }
 
+    fun save(entity: CustomerEntity): CustomerEntity {
+        dynamoDBMapper.save(entity)
+        return entity
+    }
+
 }

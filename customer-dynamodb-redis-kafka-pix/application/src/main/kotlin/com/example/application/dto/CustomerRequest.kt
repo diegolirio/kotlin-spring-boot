@@ -1,6 +1,6 @@
 package com.example.application.dto
 
-class CustomerRequest(
+data class CustomerRequest(
         var name: String? = null,
         var age: Int? = null
 )

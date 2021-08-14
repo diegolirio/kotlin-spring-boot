@@ -14,7 +14,7 @@ class UseCaseBeans(
 ) {
 
     @Bean
-    fun createCustomerUseCase() : CreateCustomerUseCase = CreateCustomerInput()
+    fun createCustomerUseCase() : CreateCustomerUseCase = CreateCustomerInput(customerDataProvider)
 
     @Bean
     fun findAllCustomersUseCase() : FindAllCustomersUseCase = FindAllCustomersInput(customerDataProvider)

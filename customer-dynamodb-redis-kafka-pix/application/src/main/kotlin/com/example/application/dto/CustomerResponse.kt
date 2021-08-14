@@ -1,6 +1,6 @@
 package com.example.application.dto
 
-class CustomerResponse(
+data class CustomerResponse(
         var id: String? = null,
         var name: String? = null,
         var age: Int? = null

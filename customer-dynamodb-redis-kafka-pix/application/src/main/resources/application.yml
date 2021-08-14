@@ -1,8 +1,21 @@
+spring:
+  application:
+    name: customer-dynamodb-redis-kafka-pix
 
 amazon:
   dynamodb:
     endpoint: http://localhost:4569
   aws:
     accessKey: XXXXXXXXXXX
-    secretKey: MLABUtGIM5NofH5sd51866+XbtE6puAC
+    secretKey: AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
     region: us-east-1
+
+cache:
+  redis:
+    enable: true
+    host: 'localhost'
+    port: 6379
+    timeout: 5000
+    defaultTimeToLive: 60
+    mediumTimeToLive: 300
+    longTimeToLive: 3600

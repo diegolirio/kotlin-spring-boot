@@ -16,6 +16,13 @@ fun Customer.toCustomerResponse(): CustomerResponse =
             age = this.age
         )
 
+fun Customer.toCustomerEntity(): CustomerEntity =
+        CustomerEntity(
+                id = this.id,
+                name = this.name,
+                age = this.age
+        )
+
 fun List<Customer>.toCustomersResponse() = this.map { it.toCustomerResponse() }
 
 fun CustomerEntity.toCustomerVO(): Customer =

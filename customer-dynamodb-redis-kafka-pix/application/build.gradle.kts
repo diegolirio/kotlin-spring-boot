@@ -17,5 +17,7 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	implementation("com.amazonaws:aws-java-sdk-dynamodb:1.11.740")
 	implementation("com.amazonaws:aws-java-sdk-core:1.11.740")
+	implementation("redis.clients:jedis")
+	implementation("io.github.microutils:kotlin-logging:1.6.26")
 }
 

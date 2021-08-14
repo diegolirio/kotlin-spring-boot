@@ -3,7 +3,7 @@ package com.example.application.dataprovider.repository.entity
 import com.amazonaws.services.dynamodbv2.datamodeling.*
 
 @DynamoDBTable(tableName = CustomerEntity.TABLE_NAME)
-class CustomerEntity(
+data class CustomerEntity(
 
         @DynamoDBHashKey
         @DynamoDBAttribute
