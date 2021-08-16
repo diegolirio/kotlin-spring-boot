@@ -152,6 +152,46 @@ docker-compose up
 
 > Após subir os containers você pode verificar a saúde da sua infra `curl http://localhost:4566/health`.  
    
+Get All
+```sh
+curl --request GET --url http://localhost:8080/customers
+```
+
+Get By ID
+```shell
+curl --request GET \
+  --url http://localhost:8080/customers/32a4b660-1df2-416b-8946-e45e92e51055
+```
+
+Post
+```sh
+curl --request POST \
+  --url http://localhost:8080/customers \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"name": "Diego",
+	"age": 15
+}'
+```
+
+Put
+````shell
+curl --request PUT \
+  --url http://localhost:8080/customers/32a4b660-1df2-416b-8946-e45e92e51055 \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"name": "Diego Lirio",
+	"age": 20
+}'
+````
+
+Delete
+```shell
+curl --request DELETE \
+  --url http://localhost:8080/customers/32a4b660-1df2-416b-8946-e45e92e51055
+```
+
+
 Repository é acessada pelo [dataprovider](https://github.com/diegolirio/kotlin-spring-boot/tree/master/customer-dynamodb-redis-kafka-pix/application/src/main/kotlin/com/example/application/dataprovider).   
 
 ---

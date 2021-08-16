@@ -15,8 +15,8 @@ class UpdateCustomerInput(
             return updateCustomerOutput.update(
                 customer = Customer(
                     id = it.id,
-                    name = it.name,
-                    age = it.age
+                    name = toCustomerVO.name,
+                    age = toCustomerVO.age,
                 )
             )
         }

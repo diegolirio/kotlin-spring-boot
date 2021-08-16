@@ -29,8 +29,8 @@ class CustomerRestController(
 
     @GetMapping("/{id}")
     @Cacheable(RedisConfig.CUSTOMERS_BY_ID_CACHE)
-    fun getById(id: String): List<CustomerResponse> {
-        return findAllCustomersUseCase.execute().toCustomersResponse()
+    fun getById(@PathVariable id: String): CustomerResponse {
+        return findByIdCustomerUseCase.execute(id).toCustomerResponse()
     }
 
     @PostMapping
@@ -46,7 +46,7 @@ class CustomerRestController(
         RedisConfig.CUSTOMERS_CACHE,
         RedisConfig.CUSTOMERS_BY_ID_CACHE], allEntries = true)
     fun update(@PathVariable id: String, @RequestBody customerRequest: CustomerRequest): CustomerResponse {
-        return findByIdCustomerUseCase.execute(id).toCustomerResponse()
+        return updateCustomerUseCase.execute(id, customerRequest.toCustomerVO()).toCustomerResponse()
     }
 
     @DeleteMapping("/{id}")

@@ -16,6 +16,6 @@ cache:
     host: 'localhost'
     port: 6379
     timeout: 5000
-    defaultTimeToLive: 60
-    mediumTimeToLive: 300
-    longTimeToLive: 3600
+    #defaultTimeToLive: 60
+    #ediumTimeToLive: 300
+    #longTimeToLive: 3600
