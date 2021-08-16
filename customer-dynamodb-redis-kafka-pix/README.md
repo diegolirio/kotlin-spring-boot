@@ -2,7 +2,7 @@
 
 ## Running app local
 
-> Up Infra as Dynamo, Redis, Kafka.   
+> Running infra -> Dynamo, Redis, Kafka.   
 > When the infra is UP, Starting Spring-Boot Application
 ```shell
 docker-compose up
