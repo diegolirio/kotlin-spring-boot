@@ -1,7 +1,14 @@
 # Customer DynamoDB Redis Kafka
 
-## Arquitetura de Codigo
+## Running app local
 
+> Up Infra as Dynamo, Redis, Kafka.   
+> When the infra is UP, Starting Spring-Boot Application
+```shell
+docker-compose up
+```
+
+## Arquitetura de Codigo
 
 ```
 |--- customer-app
@@ -137,21 +144,10 @@ dependencies {
 
 ### Criar um CRUD com DynamoDB usando o localstack para simular a Infra AWS
 
-Docker-Compose
+[Docker-Compose.yml](./docker-compose.yml)
 
-```yml
-version: "3"
-
-services:
-  localstack:
-    image: localstack/localstack:0.12.16
-    ports:
-      - "4566-4599:4566-4599"
-      - "8085:8080"
-    environment:
-      - SERVICES=dynamodb,s3
-    volumes:
-      - './.localstack:/tmp/localstack'
+```shell
+docker-compose up
 ```
 
 > Após subir os containers você pode verificar a saúde da sua infra `curl http://localhost:4566/health`.  
@@ -160,9 +156,9 @@ Repository é acessada pelo [dataprovider](https://github.com/diegolirio/kotlin-
 
 ---
 
-### Configurar Cacheable Spring com Redis no Controller para HttpMethods GET e nos POST, PUT, PATCH Evitar o Cache
+#### Configurar Cacheable Spring com Redis no Controller para HttpMethods GET e nos POST, PUT, PATCH e DELETE Limpar o Cache
 
-// TODO Desenho
+![customer-cache](https://user-images.githubusercontent.com/83074806/129500137-2166441a-5d81-4bcf-86d6-85146ed5bdad.png)
 
 ---
 
