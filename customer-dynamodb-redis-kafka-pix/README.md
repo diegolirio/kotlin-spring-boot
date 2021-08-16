@@ -223,5 +223,7 @@ https://kotlindays.com/2019/12/06/multi-module-spring-boot-in-kotlin-dsl/index.h
 https://docs.gradle.org/current/userguide/kotlin_dsl.html#sec:multi_project_builds    
 https://medium.com/trainingcenter/localstack-testando-servi%C3%A7os-aws-7f9f24de293c   
 https://hub.docker.com/r/localstack/localstack   
-https://reflectoring.io/aws-localstack/    
+https://reflectoring.io/aws-localstack/      
+https://www.baeldung.com/spring-boot-redis-cache   
+
 
