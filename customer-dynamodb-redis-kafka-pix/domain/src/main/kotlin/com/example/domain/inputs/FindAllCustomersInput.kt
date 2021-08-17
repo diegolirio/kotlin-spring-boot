@@ -2,7 +2,7 @@ package com.example.domain.inputs
 
 import com.example.domain.FindAllCustomersUseCase
 import com.example.domain.outputs.FindAllCustomersOutput
-import com.example.domain.vo.Customer
+import com.example.domain.Customer
 
 class FindAllCustomersInput(
         private val findAllCustomersOutput: FindAllCustomersOutput

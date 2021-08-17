@@ -1,6 +1,6 @@
-package com.example.domain.vo
+package com.example.application.customer.dto
 
-data class Customer(
+data class CustomerResponse(
         var id: String? = null,
         var name: String? = null,
         var age: Int? = null

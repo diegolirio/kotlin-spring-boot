@@ -1,4 +1,4 @@
-package com.example.application.dataprovider.repository.entity
+package com.example.application.customer.dataprovider.repository.entity
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*
 

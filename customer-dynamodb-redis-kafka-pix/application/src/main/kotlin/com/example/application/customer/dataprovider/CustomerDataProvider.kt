@@ -1,8 +1,8 @@
-package com.example.application.dataprovider
+package com.example.application.customer.dataprovider
 
-import com.example.application.dataprovider.repository.CustomerRepository
+import com.example.application.customer.dataprovider.repository.CustomerRepository
 import com.example.domain.outputs.*
-import com.example.domain.vo.Customer
+import com.example.domain.Customer
 import org.springframework.stereotype.Component
 import toCustomerEntity
 import toCustomerVO

@@ -2,7 +2,7 @@ package com.example.domain.inputs
 
 import com.example.domain.CreateCustomerUseCase
 import com.example.domain.outputs.CreateCustomerOutput
-import com.example.domain.vo.Customer
+import com.example.domain.Customer
 import java.util.*
 
 class CreateCustomerInput(

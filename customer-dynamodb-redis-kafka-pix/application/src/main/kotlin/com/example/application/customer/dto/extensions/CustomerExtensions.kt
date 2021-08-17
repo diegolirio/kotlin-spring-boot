@@ -1,7 +1,7 @@
-import com.example.application.dataprovider.repository.entity.CustomerEntity
-import com.example.application.dto.CustomerRequest
-import com.example.application.dto.CustomerResponse
-import com.example.domain.vo.Customer
+import com.example.application.customer.dataprovider.repository.entity.CustomerEntity
+import com.example.application.customer.dto.CustomerRequest
+import com.example.application.customer.dto.CustomerResponse
+import com.example.domain.Customer
 
 fun CustomerRequest.toCustomerVO(): Customer =
         Customer(

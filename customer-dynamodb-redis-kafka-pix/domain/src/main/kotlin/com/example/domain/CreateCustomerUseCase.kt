@@ -1,6 +1,6 @@
 package com.example.domain
 
-import com.example.domain.vo.Customer
+import com.example.domain.Customer
 
 interface CreateCustomerUseCase {
 

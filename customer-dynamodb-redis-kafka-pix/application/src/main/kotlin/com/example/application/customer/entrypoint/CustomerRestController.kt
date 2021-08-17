@@ -1,8 +1,8 @@
-package com.example.application.entrypoint
+package com.example.application.customer.entrypoint
 
 import com.example.application.configuration.cache.RedisConfig
-import com.example.application.dto.CustomerRequest
-import com.example.application.dto.CustomerResponse
+import com.example.application.customer.dto.CustomerRequest
+import com.example.application.customer.dto.CustomerResponse
 import com.example.domain.*
 import org.springframework.cache.annotation.CacheEvict
 import org.springframework.cache.annotation.Cacheable
