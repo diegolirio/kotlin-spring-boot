@@ -14,7 +14,8 @@ class PixRestController(
 ) {
 
     @PostMapping
-    fun send(@RequestBody transaction: Transaction) {
+    fun send(@RequestBody transaction: Transaction): Map<String, String> {
         sendPixUseCase.execute(transaction)
+        return hashMapOf(Pair("message", "Pix enviado com sucesso"))
     }
 }
