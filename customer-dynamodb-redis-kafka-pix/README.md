@@ -13,16 +13,21 @@ docker-compose up
 ```
 |--- customer-app
            |--- application
-                      |--- gateway/provider
-                      |--- entrypoint
-                      |--- producer/kafka
-                      |--- cache
+                    |--- adapters
+                            |--- in
+                                  |--- entrypoint
+                                  |--- consumer/kafka
+                            |--- out
+                                  |--- dataprovider
+                                  |--- producer/kafka
+                                  |--- cache
            |--- domain
                    |--- UpdateCustomerUseCase.java
-                   |--- inputs
-                            |--- UpdateCustomerInput.java
-                   |--- outputs
-                            |--- CustomerServiceOutput.java
+                   |--- ports
+                           |--- inputs
+                                    |--- UpdateCustomerInput.java
+                           |--- outputs
+                                    |--- CustomerServiceOutput.java
 ```                                                       
 
 ## Separar aplicacao em 2 modulos Gradle `Application e Domain`

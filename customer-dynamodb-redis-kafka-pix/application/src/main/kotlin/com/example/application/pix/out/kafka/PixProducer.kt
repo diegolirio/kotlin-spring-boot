@@ -1,4 +1,4 @@
-package com.example.application.pix.kafka
+package com.example.application.pix.out.kafka
 
 import com.example.domain.outputs.SendPixOutput
 import com.example.domain.vo.Transaction

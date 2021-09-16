@@ -1,4 +1,4 @@
-package com.example.application.pix.dto
+package com.example.application.pix.shared.dto
 
 data class TransactionRequest(
         var id: String? = null,

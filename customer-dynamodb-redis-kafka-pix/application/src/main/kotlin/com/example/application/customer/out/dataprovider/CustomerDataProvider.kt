@@ -1,6 +1,6 @@
-package com.example.application.customer.dataprovider
+package com.example.application.customer.out.dataprovider
 
-import com.example.application.customer.dataprovider.repository.CustomerRepository
+import com.example.application.customer.out.dataprovider.repository.CustomerRepository
 import com.example.domain.outputs.*
 import com.example.domain.Customer
 import org.springframework.stereotype.Component

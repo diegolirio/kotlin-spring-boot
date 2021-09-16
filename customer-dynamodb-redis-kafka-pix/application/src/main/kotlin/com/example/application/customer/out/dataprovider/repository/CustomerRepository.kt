@@ -1,8 +1,8 @@
-package com.example.application.customer.dataprovider.repository
+package com.example.application.customer.out.dataprovider.repository
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression
-import com.example.application.customer.dataprovider.repository.entity.CustomerEntity
+import com.example.application.customer.out.dataprovider.repository.entity.CustomerEntity
 import org.springframework.stereotype.Repository
 
 @Repository

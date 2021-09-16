@@ -1,4 +1,4 @@
-package com.example.application.customer.dto
+package com.example.application.customer.shared.dto
 
 data class CustomerResponse(
         var id: String? = null,

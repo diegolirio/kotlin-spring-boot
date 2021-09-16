@@ -1,8 +1,13 @@
 package com.example.domain
 
-import com.example.domain.Customer
+import com.example.domain.inputs.FindCustomerByIdInput
+import com.example.domain.outputs.FindCustomerByIdOutput
 
-interface FindCustomerByIdUseCase {
+class FindCustomerByIdUseCase(
+        private val findCustomerByIdOutput: FindCustomerByIdOutput
+) : FindCustomerByIdInput {
 
-    fun execute(id: String): Customer
+    override fun execute(id: String): Customer {
+        return findCustomerByIdOutput.findById(id)
+    }
 }

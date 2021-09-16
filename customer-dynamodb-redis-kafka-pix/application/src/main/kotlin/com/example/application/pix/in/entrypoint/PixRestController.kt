@@ -1,4 +1,4 @@
-package com.example.application.pix.entrypoint
+package com.example.application.pix.`in`.entrypoint
 
 import com.example.domain.SendPixUseCase
 import com.example.domain.vo.Transaction

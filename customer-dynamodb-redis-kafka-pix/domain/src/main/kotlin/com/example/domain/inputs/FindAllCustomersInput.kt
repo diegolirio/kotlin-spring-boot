@@ -1,13 +1,9 @@
 package com.example.domain.inputs
 
-import com.example.domain.FindAllCustomersUseCase
-import com.example.domain.outputs.FindAllCustomersOutput
 import com.example.domain.Customer
 
-class FindAllCustomersInput(
-        private val findAllCustomersOutput: FindAllCustomersOutput
-) : FindAllCustomersUseCase {
+interface FindAllCustomersInput {
 
-    override fun execute(): List<Customer> = findAllCustomersOutput.findAll()
+    fun execute(): List<Customer>
 
 }
