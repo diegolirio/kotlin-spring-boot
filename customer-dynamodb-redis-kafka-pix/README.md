@@ -28,7 +28,11 @@ docker-compose up
                                     |--- UpdateCustomerInput.java
                            |--- outputs
                                     |--- CustomerServiceOutput.java
-```                                                       
+```   
+
+![Screen Shot 2021-09-16 at 12 07 01](https://user-images.githubusercontent.com/83074806/133637173-9090f09d-07ec-4828-9072-ef971693f182.png)
+> Imagem Retirada do Livro --> [Get Your Hands Dirty on Clean Architecture by Tom Hombergs](https://www.amazon.com.br/Your-Hands-Dirty-Clean-Architecture/dp/1839211962)
+
 
 ## Separar aplicacao em 2 modulos Gradle `Application e Domain`
 > A ideia é que a `application` pensada em microservice ter tudo o
