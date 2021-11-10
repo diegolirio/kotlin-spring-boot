@@ -1,5 +1,6 @@
 package com.example.demovcfunds.service
 
+import com.example.demovcfunds.controller.handles.exceptions.ValuationInvalidException
 import com.example.demovcfunds.entity.Investment
 import com.example.demovcfunds.repository.InvestmentRepository
 import org.springframework.stereotype.Service
@@ -41,7 +42,7 @@ class InvestmentService(
                 }
                 throw RuntimeException("Fintech com Valuation entre 10 milhoes e 15 milhoes deverá ter mais de 3 anos de operação")
             }
-            throw RuntimeException("Valuation invalido para FINTECH, valor deverá estar entre 10 milhoes a 60 milhoes")
+            throw ValuationInvalidException("Valuation invalido para FINTECH, valor deverá estar entre 10 milhoes a 60 milhoes")
         }
         // HEALTHTECH
         if(investment.sector == Investment.SectorEnum.HEALTHTECH) {

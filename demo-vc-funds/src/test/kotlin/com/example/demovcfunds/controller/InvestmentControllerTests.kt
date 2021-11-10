@@ -1,5 +1,6 @@
 package com.example.demovcfunds.controller
 
+import com.example.demovcfunds.controller.handles.ResponseData
 import com.example.demovcfunds.entity.Investment
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
@@ -17,8 +18,6 @@ class InvestmentControllerTests {
     @Autowired
     private lateinit var restTemplate: TestRestTemplate
 
-    // TODO Sector not allowed to invest
-
     @Test
     fun createInvestmentLogTechSectorNotAllowedToInvest() {
         val investment = Investment(
@@ -31,9 +30,27 @@ class InvestmentControllerTests {
                 startDate = LocalDate.of(2019,3,5)
         )
 
-        val response = restTemplate.postForEntity("/investments", investment, Investment::class.java)
-        Assertions.assertEquals(200, response.statusCodeValue)
+        val response = restTemplate.postForEntity("/investments", investment, ResponseData::class.java)
+        Assertions.assertEquals(412, response.statusCodeValue)
+        Assertions.assertEquals("Sector not alloed to invest", response.body!!.message)
+    }
 
+
+    @Test
+    fun createInvestmentLogTechValuationInvalid() {
+        val investment = Investment(
+                companyCnpj = "1",
+                companyName = "Devspoint",
+                value = 500999.0,
+                companyValuation = 100777.0,
+                id = null,
+                sector = Investment.SectorEnum.LOGTECH,
+                startDate = LocalDate.of(2019,3,5)
+        )
+
+        val response = restTemplate.postForEntity("/investments", investment, ResponseData::class.java)
+        Assertions.assertEquals(412, response.statusCodeValue)
+        Assertions.assertEquals("Valuation invalido para FINTECH, valor deverá estar entre 10 milhoes a 60 milhoes", response.body!!.message)
     }
 
     @Test
