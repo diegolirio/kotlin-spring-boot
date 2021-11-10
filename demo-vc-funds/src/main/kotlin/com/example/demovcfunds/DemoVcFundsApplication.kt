@@ -9,3 +9,4 @@ class DemoVcFundsApplication
 fun main(args: Array<String>) {
 	runApplication<DemoVcFundsApplication>(*args)
 }
+

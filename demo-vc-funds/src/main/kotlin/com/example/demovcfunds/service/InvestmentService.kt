@@ -1,6 +1,8 @@
 package com.example.demovcfunds.service
 
+import com.example.demovcfunds.controller.handles.exceptions.OperatingTimeInvalidException
 import com.example.demovcfunds.controller.handles.exceptions.ValuationInvalidException
+import com.example.demovcfunds.controller.handles.exceptions.ValueToInvestInvalidException
 import com.example.demovcfunds.entity.Investment
 import com.example.demovcfunds.repository.InvestmentRepository
 import org.springframework.stereotype.Service
@@ -20,9 +22,9 @@ class InvestmentService(
                     if(investment.value >= 500000 && investment.value <= 2000000) {
                         return investmentRepository.save(investment)
                     }
-                    throw RuntimeException("Fintech com Valuation entre 10 milhoes e 15 milhoes somente poderá ter aportes entre 500 mil e 2 milhoes")
+                    throw ValueToInvestInvalidException("Value to invest should be between 500 thousand to 2 million dollars for this valuation")
                 }
-                throw RuntimeException("Fintech com Valuation entre 10 milhoes e 15 milhoes deverá ter mais de 1 ano de operação")
+                throw OperatingTimeInvalidException("FinTech should be operating for more than 2 years for this Valuation")
             }
             if(investment.companyValuation > 15000000 && investment.companyValuation <= 40000000) {
                 if(investment.startDate!!.isBefore(LocalDate.now().minusYears(2))) {
@@ -42,7 +44,7 @@ class InvestmentService(
                 }
                 throw RuntimeException("Fintech com Valuation entre 10 milhoes e 15 milhoes deverá ter mais de 3 anos de operação")
             }
-            throw ValuationInvalidException("Valuation invalido para FINTECH, valor deverá estar entre 10 milhoes a 60 milhoes")
+            throw ValuationInvalidException("Valuation Not Allowed for FinTech, valuation should be between 10 to 60 million dollars")
         }
         // HEALTHTECH
         if(investment.sector == Investment.SectorEnum.HEALTHTECH) {
