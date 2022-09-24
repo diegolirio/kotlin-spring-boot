@@ -16,6 +16,7 @@ class OrderHttpEntrypoint(
     fun routeOrder() = router {
         (OrderHandler.ORDER_API and accept(MediaType.APPLICATION_JSON)).nest {
             POST(ROOT, orderHandler::create)
+            GET("/{id}", orderHandler::getById)
         }
     }
 }
