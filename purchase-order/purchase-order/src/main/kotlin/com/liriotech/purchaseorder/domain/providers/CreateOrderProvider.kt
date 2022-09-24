@@ -4,5 +4,5 @@ import com.liriotech.purchaseorder.domain.entities.OrderEntity
 import reactor.core.publisher.Mono
 
 interface CreateOrderProvider {
-    fun create(order: OrderEntity): Mono<OrderEntity>
+    fun create(orderEntity: OrderEntity): Mono<OrderEntity>
 }

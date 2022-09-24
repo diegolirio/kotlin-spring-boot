@@ -1,0 +1,26 @@
+{
+  "type": "record",
+  "name": "OrderAvro",
+  "namespace": "com.liriotech.purchaseorder.app.providers.kafka.avro.data",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "customerId",
+      "type": "string"
+    },
+    {
+      "name": "productCode",
+      "type": "string"
+    },
+    {
+      "name": "value",
+      "type": {
+            "type": "string",
+            "java-class": "java.math.BigDecimal"
+      }
+    }
+  ]
+}

@@ -1,5 +1,26 @@
 # Order
 
+## Tasks
+
+## Kafka Command Line
+
+```shell
+# enter in container
+docker exec -it broker bash
+```
+```shell
+# consumer docker
+/bin/kafka-console-consumer --topic cmd.dsr.investments.order.registration --bootstrap-server=broker:9092
+```
+```shell
+# consumer remote
+/bin/kafka-console-consumer --topic cmd.dsr.investments.order.registration --bootstrap-server=meu.broker1.com:9092,meu.broker2.com:9092
+```
+```shell
+# producer
+/bin/kafka-console-producer --topic cmd.dsr.investments.order.registration --bootstrap-server=localhost:9092
+```
+
 ## Requests
 
 Generate Order

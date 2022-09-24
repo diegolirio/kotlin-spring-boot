@@ -1,0 +1,43 @@
+spring:
+
+  mongodb.embedded.version: 4.0.2
+  data:
+    mongodb:
+      database: test
+      port: 27017
+
+  kafka: #https://mmarcosab.medium.com/criando-consumer-e-produkafka-com-spring-boot-b427cc2f841d
+    bootstrap-servers: localhost:9092
+    properties:
+      schema.registry.url: 127.0.0.1:8081
+#      basic:
+#        auth:
+#          user.info: {{ SR_API_KEY }}:{{ SR_API_SECRET }}
+#          credentials:
+#            source: USER_INFO
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      #value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      #value-serializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      group-id: purchase-order
+
+topic.name.producer: cmd.dsr.investments.order.registration # TODO name
+auto.create.topics.enable: true
+
+#kafka:
+#  producer:
+#    topics:
+#      order-registration: cmd.dsr.investments.order.registration
+  #listener:
+    #bootstrap-servers: localhost:9092
+    #registry: http://localhost:8081
+    #events-concurrency: 1 # TODO
+    #events-consumer-group: purchase-order-update-status-consumer-group
+    #events-auto-offset-reset-config: latest
+    #reconnect-backoff: 5000
+    #reconnect-backoff-max: 1800000
+    #max-producer-retries: 10
+    #enableSSL: false
+    #topics:
+      #order-changes: cmd.dsr.investments.order.update.status
