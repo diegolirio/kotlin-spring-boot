@@ -9,6 +9,11 @@
 cd docker
 docker-compose -f docker-compose-only-infra.yml
 ```
+> Uping Apps and infra with docker
+```sh
+cd docker
+docker-compose -f docker-compose-infra-and-apps.yml
+```
 
 Create Kafka Connect Synk (Order-API)
 

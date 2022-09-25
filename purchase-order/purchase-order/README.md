@@ -37,5 +37,39 @@ curl -i -X POST -H  "Content-Type:application/json" \
 
 ```shell
 curl -i -X GET -H  "Content-Type:application/json" \
+    http://localhost:8080/api/orders
+```
+
+```shell
+curl -i -X GET -H  "Content-Type:application/json" \
     http://localhost:8080/api/orders/632e7780ce8eeb42dc29b1be
+```
+
+Gradle
+
+> Build generated in `./build/libs/app.jar`
+```shell
+./gradlew build -x test
+```
+> Detecting code smells and it is generated in `./build/reports/detekt`. 
+> You can open the `detekt.html` in the Browser  
+```shell
+./gradlew detekt
+```
+> Run app 
+```shell
+./gradlew bootRun
+```
+> Tests 
+> // TODO with jacoco
+```shell
+./gradlew test
+```
+
+Docker 
+
+> Build
+```sh
+./gradlew build
+docker build -t liriotech/purchase-order .
 ```

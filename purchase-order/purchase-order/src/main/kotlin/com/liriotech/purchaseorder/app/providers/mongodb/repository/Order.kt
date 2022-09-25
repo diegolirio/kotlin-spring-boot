@@ -8,5 +8,6 @@ class Order(
     var id: String? = null,
     val productCode: String? = null,
     val customerId: String? = null,
-    val value: BigDecimal? = null
+    val value: BigDecimal? = null,
+    val status: String? = null
 )

@@ -43,6 +43,7 @@ dependencies {
 	testImplementation("io.projectreactor:reactor-test")
 }
 
+
 tasks.withType<com.github.davidmc24.gradle.plugin.avro.GenerateAvroJavaTask> {
 	source("src/main/resources/avro")
 	setOutputDir(file("src/main/kotlin"))

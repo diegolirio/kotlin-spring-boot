@@ -9,12 +9,7 @@ spring:
   kafka: #https://mmarcosab.medium.com/criando-consumer-e-produkafka-com-spring-boot-b427cc2f841d
     bootstrap-servers: localhost:9092
     properties:
-      schema.registry.url: 127.0.0.1:8081
-#      basic:
-#        auth:
-#          user.info: {{ SR_API_KEY }}:{{ SR_API_SECRET }}
-#          credentials:
-#            source: USER_INFO
+      schema.registry.url: localhost:8081
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       #value-serializer: org.apache.kafka.common.serialization.StringSerializer

@@ -1,6 +1,7 @@
 package com.liriotech.purchaseorder.domain.usecases
 
 import com.liriotech.purchaseorder.domain.entities.OrderEntity
+import com.liriotech.purchaseorder.domain.entities.StatusEnum
 import com.liriotech.purchaseorder.domain.providers.CreateOrderProvider
 import com.liriotech.purchaseorder.domain.providers.NotifyChangesProvider
 import reactor.core.publisher.Mono
@@ -13,11 +14,13 @@ class CreateOrderUsecase(
     private val notifyChangesProvider: NotifyChangesProvider
 ) {
 
-    fun create(order: OrderEntity) : Mono<OrderEntity> =
+    fun create(orderEntity: OrderEntity) : Mono<OrderEntity> =
          createOrderProvider
              // lock
              // validates (chain)
-             .create(order)
+             .create(
+                 orderEntity.copy(status = StatusEnum.PENDING)
+             )
              .flatMap {
                  // unlock
                  notifyChangesProvider.send(it)

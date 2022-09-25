@@ -4,6 +4,7 @@ import com.liriotech.purchaseorder.app.entrypoints.http.data.OrderRequest
 import com.liriotech.purchaseorder.app.entrypoints.http.extensions.toOrderEntity
 import com.liriotech.purchaseorder.domain.entities.OrderEntity
 import com.liriotech.purchaseorder.domain.usecases.CreateOrderUsecase
+import com.liriotech.purchaseorder.domain.usecases.GetOrderUsecase
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.server.ServerRequest
 import org.springframework.web.reactive.function.server.ServerResponse
@@ -12,7 +13,8 @@ import java.net.URI
 
 @Component
 class OrderHandler(
-    private val createOrderUsecase: CreateOrderUsecase
+    private val createOrderUsecase: CreateOrderUsecase,
+    private val getOrderUsecase: GetOrderUsecase
 ) {
 
     companion object { const val ORDER_API = "/api/orders" }
@@ -31,4 +33,9 @@ class OrderHandler(
                 Mono.just(OrderEntity(id = serverRequest.pathVariable("id"))),
                 OrderEntity::class.java
             )
+
+    fun get(serverRequest: ServerRequest): Mono<ServerResponse> =
+        ServerResponse
+            .ok()
+            .body(getOrderUsecase.get(), OrderEntity::class.java)
 }
