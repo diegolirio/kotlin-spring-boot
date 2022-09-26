@@ -3,10 +3,14 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
 	id("org.springframework.boot") version "2.7.3" apply false
 	id("io.spring.dependency-management") version "1.0.13.RELEASE" apply false
-	// id("io.gitlab.arturbosch.detekt") version "1.17.0"
+	id("io.gitlab.arturbosch.detekt") version "1.17.0"
 	// id("com.github.davidmc24.gradle.plugin.avro") version "1.2.0"
 	kotlin("jvm") version "1.6.21" apply false
 	kotlin("plugin.spring") version "1.6.21" apply false
+}
+
+apply {
+	plugin("io.gitlab.arturbosch.detekt")
 }
 
 group = "com.liriotech"
@@ -42,6 +46,7 @@ subprojects {
 	}
 	apply {
 		plugin("io.spring.dependency-management")
+		plugin("io.gitlab.arturbosch.detekt")
 	}
 }
 
@@ -63,3 +68,15 @@ tasks.withType<Test> {
 //		mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
 //	}
 //}
+
+detekt {
+	input = files(
+		"app/src/main/kotlin/",
+		"domain/src/main/kotlin/"
+	)
+	config = files("default-detekt-config.yml")
+	reports {
+		txt.enabled = false
+	}
+	basePath = "$projectDir"
+}
