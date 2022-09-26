@@ -7,27 +7,35 @@ import org.apache.kafka.clients.producer.KafkaProducer
 import org.apache.kafka.clients.producer.ProducerRecord
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
+import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.stereotype.Component
 
 
 @Component
 class OrderKafkaProducer(
     @Value("\${topic.name.producer}") private val topicName: String,
-    private val producer: KafkaProducer<String, Any>
+    private val kafkaTemplate: KafkaTemplate<String, Any>
 ) : NotifyChangesProvider {
 
     private val log = LoggerFactory.getLogger(this::class.java)
 
     override fun send(orderEntity: OrderEntity): Boolean =
-        producer
-            .send(
-                ProducerRecord(topicName, orderEntity.toAvro())
-            ).let {
-                log.info(
-                    "m=send; event=OrderPublish; msg={}; customerId=${orderEntity.customerId};  topic=${topicName}; payload=$it ",
-                    "Mensagem enviada com sucesso"
-                )
-                return true
-            }
+        kafkaTemplate
+            .send(ProducerRecord(topicName, orderEntity.toAvro()))
+            .addCallback(
+                {
+                    log.info(
+                        "m=send; event=OrderPublish; msg={}; customerId=${orderEntity.customerId};  topic=${topicName}; payload=${it.toString()};",
+                        "Mensagem enviada com sucesso"
+                    )
+                },
+                {
+                    log.error(
+                        "m=send; event=OrderPublish; msg={}; customerId=${orderEntity.customerId};  topic=${topicName}; payload=${it.toString()}",
+                        "Mensagem não enviada"
+                    )
+                })
+            .let { true }
+
 
 }

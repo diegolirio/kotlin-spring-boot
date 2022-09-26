@@ -9,13 +9,12 @@ spring:
   kafka: #https://mmarcosab.medium.com/criando-consumer-e-produkafka-com-spring-boot-b427cc2f841d
     bootstrap-servers: localhost:9092
     properties:
-      schema.registry.url: localhost:8081
+      schema.registry.url: http://localhost:8081
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       #value-serializer: org.apache.kafka.common.serialization.StringSerializer
       #value-serializer: org.springframework.kafka.support.serializer.JsonDeserializer
       value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
-      group-id: purchase-order
 
 topic.name.producer: cmd.dsr.investments.order.registration # TODO name
 auto.create.topics.enable: true

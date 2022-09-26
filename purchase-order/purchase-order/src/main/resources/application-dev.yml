@@ -9,11 +9,10 @@ spring:
   kafka:
     bootstrap-servers: broker:9092
     properties:
-      schema.registry.url: schema-registry:8081
+      schema.registry.url: http://schema-registry:8081
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
-      group-id: purchase-order
 
 topic.name.producer: cmd.dsr.investments.order.registration
 auto.create.topics.enable: true

@@ -13,12 +13,22 @@ docker exec -it broker bash
 /bin/kafka-console-consumer --topic cmd.dsr.investments.order.registration --bootstrap-server=broker:9092
 ```
 ```shell
+# consumer docker with schema-registry
+/bin/kafka-console-consumer --topic cmd.dsr.investments.order.registration --bootstrap-server=broker:9092 --property schema.registry.url="http://schema-registry:8081"
+```
+```shell
 # consumer remote
 /bin/kafka-console-consumer --topic cmd.dsr.investments.order.registration --bootstrap-server=meu.broker1.com:9092,meu.broker2.com:9092
 ```
 ```shell
 # producer
 /bin/kafka-console-producer --topic cmd.dsr.investments.order.registration --bootstrap-server=localhost:9092
+```
+
+## Schema Registry
+
+```shell
+curl -X GET http://localhost:8081/subjects?deleted=true
 ```
 
 ## Requests
@@ -64,12 +74,4 @@ Gradle
 > // TODO with jacoco
 ```shell
 ./gradlew test
-```
-
-Docker 
-
-> Build
-```sh
-./gradlew build
-docker build -t liriotech/purchase-order .
 ```
