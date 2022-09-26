@@ -5,3 +5,5 @@ spring:
     password:
     driver-class-name: org.h2.Driver
   h2.console.enabled: true
+
+server.port: 8087
