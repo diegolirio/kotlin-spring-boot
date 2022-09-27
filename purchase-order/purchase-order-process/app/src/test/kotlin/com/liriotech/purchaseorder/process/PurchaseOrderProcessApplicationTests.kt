@@ -1,4 +1,4 @@
-package com.liriotech.purchaseorderprocess
+package com.liriotech.purchaseorder.process
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

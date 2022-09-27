@@ -1,4 +1,4 @@
-package com.liriotech.purchaseorderprocess
+package com.liriotech.purchaseorder.process
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
