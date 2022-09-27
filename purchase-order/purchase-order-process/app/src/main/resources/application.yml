@@ -11,10 +11,10 @@ spring:
     bootstrap-servers: localhost:9092
     properties:
       schema.registry.url: http://localhost:8081
-    consumer:
+    listener:
+      ack-mode: manual
       topics:
         order: cmd.dsr.investments.order.registration
-      ack-mode: manual
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
       group-id: purchase-order-process-group-id
