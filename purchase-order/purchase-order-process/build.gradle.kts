@@ -1,36 +1,52 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("org.springframework.boot") version "2.7.3"
-	id("io.spring.dependency-management") version "1.0.13.RELEASE"
-	kotlin("jvm") version "1.6.21"
-	kotlin("plugin.spring") version "1.6.21"
+	id("org.springframework.boot") version "2.7.3" apply false
+	id("io.spring.dependency-management") version "1.0.13.RELEASE" apply false
+	id("io.gitlab.arturbosch.detekt") version "1.17.0"
+	// id("com.github.davidmc24.gradle.plugin.avro") version "1.2.0"
+	kotlin("jvm") version "1.6.21" apply false
+	kotlin("plugin.spring") version "1.6.21" apply false
+}
+
+apply {
+	plugin("io.gitlab.arturbosch.detekt")
 }
 
 group = "com.liriotech"
 version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_11
+// java.sourceCompatibility = JavaVersion.VERSION_11
 
-repositories {
-	mavenCentral()
+buildscript {
+	repositories {
+		mavenCentral()
+	}
 }
 
-extra["springCloudVersion"] = "2021.0.3"
+allprojects {
+	group = "com.liriotech"
+	version = "1.0.0"
 
-dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-actuator")
-	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-	implementation("org.jetbrains.kotlin:kotlin-reflect")
-	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
-	runtimeOnly("com.h2database:h2")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	tasks.withType<JavaCompile> {
+		sourceCompatibility = "11"
+		targetCompatibility = "11"
+	}
+
+	tasks.withType<KotlinCompile> {
+		kotlinOptions {
+			freeCompilerArgs = listOf("-Xjsr305=strict")
+			jvmTarget = "11"
+		}
+	}
 }
 
-dependencyManagement {
-	imports {
-		mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+subprojects {
+	repositories {
+		mavenCentral()
+	}
+	apply {
+		plugin("io.spring.dependency-management")
+		plugin("io.gitlab.arturbosch.detekt")
 	}
 }
 
@@ -43,4 +59,24 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+//extra["springCloudVersion"] = "2021.0.3"
+//
+//dependencyManagement {
+//	imports {
+//		mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+//	}
+//}
+
+detekt {
+	input = files(
+		"app/src/main/kotlin/",
+		"domain/src/main/kotlin/"
+	)
+	config = files("default-detekt-config.yml")
+	reports {
+		txt.enabled = false
+	}
+	basePath = "$projectDir"
 }

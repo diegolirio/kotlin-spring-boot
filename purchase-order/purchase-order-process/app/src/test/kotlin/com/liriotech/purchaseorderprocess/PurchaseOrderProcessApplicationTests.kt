@@ -8,6 +8,6 @@ class PurchaseOrderProcessApplicationTests {
 
 	@Test
 	fun contextLoads() {
+		println("m=contextLoads")
 	}
-
 }
