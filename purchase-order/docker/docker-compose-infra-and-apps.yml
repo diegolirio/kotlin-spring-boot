@@ -136,7 +136,7 @@ services:
   ### APPS
 
   purchaseorder:
-    image: liriotech/purchaser-order:latest
+    image: liriotech/purchase-order:latest
     container_name: purchaseorder
     ports:
       - 8080:8080

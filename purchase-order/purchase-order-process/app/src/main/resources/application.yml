@@ -16,5 +16,6 @@ spring:
       topics:
         order: cmd.dsr.investments.order.registration
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      value-serializer: com.liriotech.purchaseorder.process.entrypoint.kafka.config
       group-id: purchase-order-process-group-id
+      specific.avro.reader: true

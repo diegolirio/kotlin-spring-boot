@@ -27,9 +27,11 @@ class OrderConsumer(
         message: ConsumerRecord<String, GenericRecord>,
         ack: Acknowledgment
     ) {
+
         log.info("m=onMessage, step=init, message=$message")
-        //val orderMessage = avro.fromRecord(OrderMessage.serializer(), message.value())
-        //createOrderProcessUsecase.create(orderMessage.toEntity())
+        println(message.value())
+        val orderMessage = avro.fromRecord(OrderMessage.serializer(), message.value())
+        createOrderProcessUsecase.create(orderMessage.toEntity())
         log.info("m=onMessage, step=end, message=$message")
         ack.acknowledge()
     }
