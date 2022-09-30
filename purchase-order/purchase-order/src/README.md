@@ -14,3 +14,9 @@ curl --location --request POST 'localhost:8080/api/orders' \
 
 ### GET 
 
+
+
+Ref.:
+https://dev.to/kafkabr/kafka-consumindo-registros-com-spring-40h8
+https://docs.confluent.io/kafka-clients/java/current/overview.html#shutdown-with-wakeup
+

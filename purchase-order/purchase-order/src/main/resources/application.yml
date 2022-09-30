@@ -10,14 +10,24 @@ spring:
     bootstrap-servers: localhost:9092
     properties:
       schema.registry.url: http://localhost:8081
+      auto.create.topics.enable: true
     producer:
+      topics:
+        order.registration: cmd.dsr.investments.order.registration # TODO name
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      #value-serializer: org.apache.kafka.common.serialization.StringSerializer
-      #value-serializer: org.springframework.kafka.support.serializer.JsonDeserializer
       value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
-
-topic.name.producer: cmd.dsr.investments.order.registration # TODO name
-auto.create.topics.enable: true
+    consumer:
+      topics:
+        order.process: cmd.dsr.investments.order.registration
+      auto-offset-reset: earliest
+      client-id: purchase-order-client-id
+      group-id: purchase-order-group-id
+      specific.avro.reader: true
+      enable-auto-commit: false # TODO --> https://dev.to/kafkabr/kafka-consumindo-registros-com-spring-40h8
+            # ackMode para MANUAL
+            # syncCommits como true
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
 
 #kafka:
 #  producer:

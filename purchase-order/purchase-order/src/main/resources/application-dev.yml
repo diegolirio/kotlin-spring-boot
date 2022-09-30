@@ -7,12 +7,22 @@ spring:
       port: 27017
 
   kafka:
-    bootstrap-servers: broker:9092
+    bootstrap-servers: kafka:9092
     properties:
       schema.registry.url: http://schema-registry:8081
+      auto.create.topics.enable: true
     producer:
+      topics:
+        order.registration: cmd.dsr.investments.order.registration
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
-
-topic.name.producer: cmd.dsr.investments.order.registration
-auto.create.topics.enable: true
+    consumer:
+      topics:
+        order.process: cmd.dsr.investments.order.registration
+      auto-offset-reset: earliest
+      client-id: purchase-order-client-id
+      group-id: purchase-order-group-id
+      specific.avro.reader: true
+      enable-auto-commit: false
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer

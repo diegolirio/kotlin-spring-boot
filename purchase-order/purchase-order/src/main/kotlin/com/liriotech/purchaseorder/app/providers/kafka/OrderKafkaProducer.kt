@@ -1,5 +1,6 @@
 package com.liriotech.purchaseorder.app.providers.kafka
 
+import com.liriotech.purchaseorder.app.providers.kafka.avro.data.OrderAvro
 import com.liriotech.purchaseorder.app.providers.kafka.extensions.toAvro
 import com.liriotech.purchaseorder.domain.entities.OrderEntity
 import com.liriotech.purchaseorder.domain.providers.NotifyChangesProvider
@@ -13,8 +14,8 @@ import org.springframework.stereotype.Component
 
 @Component
 class OrderKafkaProducer(
-    @Value("\${topic.name.producer}") private val topicName: String,
-    private val kafkaTemplate: KafkaTemplate<String, Any>
+    @Value("\${spring.kafka.producer.topics.order.registration}") private val topicName: String,
+    private val kafkaTemplate: KafkaTemplate<String, OrderAvro>
 ) : NotifyChangesProvider {
 
     private val log = LoggerFactory.getLogger(this::class.java)
@@ -25,13 +26,13 @@ class OrderKafkaProducer(
             .addCallback(
                 {
                     log.info(
-                        "m=send; event=OrderPublish; msg={}; customerId=${orderEntity.customerId};  topic=${topicName}; payload=${it.toString()};",
+                        "m=send; event=OrderPublish; msg={}; customerId=${orderEntity.customerId};  topic=${topicName}; payload=$it;",
                         "Mensagem enviada com sucesso"
                     )
                 },
                 {
                     log.error(
-                        "m=send; event=OrderPublish; msg={}; customerId=${orderEntity.customerId};  topic=${topicName}; payload=${it.toString()}",
+                        "m=send; event=OrderPublish; msg={}; customerId=${orderEntity.customerId};  topic=${topicName}; payload=$it",
                         "Mensagem não enviada"
                     )
                 })
