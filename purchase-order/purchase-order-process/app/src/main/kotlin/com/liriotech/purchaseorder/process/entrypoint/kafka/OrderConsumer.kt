@@ -20,19 +20,17 @@ class OrderConsumer(
     private val log = LoggerFactory.getLogger(this::class.java)
 
     @KafkaListener(
-        topics = ["\${spring.kafka.listener.topics.order}"],
-        groupId = "\${spring.kafka.listener.group-id}"
+        topics = ["\${spring.kafka.consumer.topics.order.registration}"],
+        groupId = "\${spring.kafka.consumer.group-id}"
     )
     fun onMessage(
         message: ConsumerRecord<String, GenericRecord>,
         ack: Acknowledgment
     ) {
-
-        log.info("m=onMessage, step=init, message=$message")
-        println(message.value())
+        log.info("m=onMessage, step=init, message=${message.value()}")
         val orderMessage = avro.fromRecord(OrderMessage.serializer(), message.value())
         createOrderProcessUsecase.create(orderMessage.toEntity())
-        log.info("m=onMessage, step=end, message=$message")
+        log.info("m=onMessage, step=end, message=${message.value()}")
         ack.acknowledge()
     }
 }

@@ -11,11 +11,14 @@ spring:
     bootstrap-servers: localhost:9092
     properties:
       schema.registry.url: http://localhost:8081
-    listener:
-      ack-mode: manual
+      #auto.create.topics.enable: true
+    consumer:
       topics:
-        order: cmd.dsr.investments.order.registration
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: com.liriotech.purchaseorder.process.entrypoint.kafka.config
+        order.registration: cmd.dsr.investments.order.registration
+      auto-offset-reset: earliest
+      client-id: purchase-order-process-client-id
       group-id: purchase-order-process-group-id
       specific.avro.reader: true
+      enable-auto-commit: false
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer

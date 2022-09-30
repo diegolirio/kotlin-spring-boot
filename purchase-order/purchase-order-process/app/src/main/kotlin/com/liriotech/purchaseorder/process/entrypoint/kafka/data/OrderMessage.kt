@@ -11,7 +11,8 @@ data class OrderMessage(
     val id: String? = null,
     val productCode: String? = null,
     val customerId: String? = null,
-    @Contextual val value: BigDecimal? = null,
+    //@Contextual val value: BigDecimal? = null,
+    val value: String? = null,
     val status: StatusEnum? = null,
     @Contextual val date: LocalDateTime? = null
 )
@@ -29,6 +30,6 @@ fun OrderMessage.toEntity(): OrderEntity =
         id = this.id,
         productCode = this.productCode,
         customerId = this.customerId,
-        value = this.value,
-        status = com.liriotech.purchaseorder.process.entities.StatusEnum.valueOf(this.status.toString())
+        value = BigDecimal(this.value)//,
+        //status = valueOf(this.status!!)
     )
