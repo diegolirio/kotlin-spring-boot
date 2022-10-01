@@ -1,4 +1,4 @@
-package com.liriotech.purchaseorder.domain.usecases
+package com.liriotech.purchaseorder.domain.usecases.get
 
 import com.liriotech.purchaseorder.domain.entities.OrderEntity
 import com.liriotech.purchaseorder.domain.providers.GetOrderProvider

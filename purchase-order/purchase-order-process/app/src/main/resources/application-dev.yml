@@ -1,0 +1,24 @@
+server.port: 8087
+spring:
+  datasource:
+    url: jdbc:h2:mem:demodb
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  h2.console.enabled: true
+
+  kafka:
+    bootstrap-servers: broker:29092
+    properties:
+      schema.registry.url: http://schema-registry:8081
+      #auto.create.topics.enable: true
+    consumer:
+      topics:
+        order.registration: cmd.dsr.investments.order.registration
+      auto-offset-reset: earliest
+      client-id: purchase-order-process-client-id
+      group-id: purchase-order-process-group-id
+      specific.avro.reader: true
+      enable-auto-commit: false
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer

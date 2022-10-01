@@ -7,5 +7,5 @@ data class OrderEntity(
     val productCode: String? = null,
     val customerId: String? = null,
     val value: BigDecimal? = null,
-    val status: StatusEnum? = null
+    val status: StatusEnum = StatusEnum.PENDING
 )

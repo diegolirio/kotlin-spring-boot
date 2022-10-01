@@ -30,6 +30,6 @@ fun OrderMessage.toEntity(): OrderEntity =
         id = this.id,
         productCode = this.productCode,
         customerId = this.customerId,
-        value = BigDecimal(this.value)//,
-        //status = valueOf(this.status!!)
+        value = BigDecimal(this.value),
+        status = com.liriotech.purchaseorder.process.entities.StatusEnum.valueOf(this.status!!.name)
     )

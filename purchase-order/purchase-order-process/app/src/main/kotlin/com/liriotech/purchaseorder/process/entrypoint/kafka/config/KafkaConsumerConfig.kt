@@ -8,6 +8,7 @@ import org.springframework.kafka.config.KafkaListenerContainerFactory
 import org.springframework.kafka.core.ConsumerFactory
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory
 import org.springframework.kafka.listener.ConcurrentMessageListenerContainer
+import org.springframework.kafka.listener.ContainerProperties
 import org.springframework.kafka.listener.ContainerProperties.AckMode
 
 @Configuration
@@ -26,9 +27,9 @@ class KafkaConsumerConfig(
     fun kafkaListenerContainerFactory(): KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, String>> {
         val listener = ConcurrentKafkaListenerContainerFactory<String, String>()
         listener.consumerFactory = consumerFactory()
-        listener.containerProperties.isMissingTopicsFatal = false
         listener.containerProperties.ackMode = AckMode.MANUAL
         listener.containerProperties.isSyncCommits = true
         return listener
     }
+
 }

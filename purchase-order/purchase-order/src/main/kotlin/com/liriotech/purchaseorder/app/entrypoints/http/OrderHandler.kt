@@ -3,8 +3,8 @@ package com.liriotech.purchaseorder.app.entrypoints.http
 import com.liriotech.purchaseorder.app.entrypoints.http.data.OrderRequest
 import com.liriotech.purchaseorder.app.entrypoints.http.extensions.toOrderEntity
 import com.liriotech.purchaseorder.domain.entities.OrderEntity
-import com.liriotech.purchaseorder.domain.usecases.CreateOrderUsecase
-import com.liriotech.purchaseorder.domain.usecases.GetOrderUsecase
+import com.liriotech.purchaseorder.domain.usecases.create.CreateOrderUsecase
+import com.liriotech.purchaseorder.domain.usecases.get.GetOrderUsecase
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.server.ServerRequest
 import org.springframework.web.reactive.function.server.ServerResponse

@@ -21,6 +21,16 @@
             "type": "string",
             "java-class": "java.math.BigDecimal"
       }
+    },
+    {
+      "name": "status",
+      "type": [
+        "null", {
+          "type": "enum",
+          "name": "StatusEnum",
+          "symbols": ["PENDING", "PROCESSING", "SCHEDULED", "DONE", "ERROR"]
+        }
+      ]
     }
   ]
 }

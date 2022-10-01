@@ -41,7 +41,7 @@ curl -i -X POST -H  "Content-Type:application/json" \
     -d '{
             "productCode": "17a7c157-e164-4a54-b449-adbb7f8f5c21",
             "customerId": "57f4ee10-a8d4-47f2-95de-11efc75ac227",
-            "value": "5500.00"
+            "value": "5501.00"
     }'
 ```
 

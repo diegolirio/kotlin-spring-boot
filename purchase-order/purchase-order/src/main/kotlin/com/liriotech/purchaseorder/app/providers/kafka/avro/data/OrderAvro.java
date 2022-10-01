@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class OrderAvro extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -2684463897677207662L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"OrderAvro\",\"namespace\":\"com.liriotech.purchaseorder.app.providers.kafka.avro.data\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"customerId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"productCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"value\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\",\"java-class\":\"java.math.BigDecimal\"}}]}");
+  private static final long serialVersionUID = -264916337981534132L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"OrderAvro\",\"namespace\":\"com.liriotech.purchaseorder.app.providers.kafka.avro.data\",\"fields\":[{\"name\":\"id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"customerId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"productCode\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"value\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\",\"java-class\":\"java.math.BigDecimal\"}},{\"name\":\"status\",\"type\":[\"null\",{\"type\":\"enum\",\"name\":\"StatusEnum\",\"symbols\":[\"PENDING\",\"PROCESSING\",\"SCHEDULED\",\"DONE\",\"ERROR\"]}]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -75,6 +75,7 @@ public class OrderAvro extends org.apache.avro.specific.SpecificRecordBase imple
   @Deprecated public java.lang.String customerId;
   @Deprecated public java.lang.String productCode;
   @Deprecated public java.math.BigDecimal value;
+  @Deprecated public com.liriotech.purchaseorder.app.providers.kafka.avro.data.StatusEnum status;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -89,12 +90,14 @@ public class OrderAvro extends org.apache.avro.specific.SpecificRecordBase imple
    * @param customerId The new value for customerId
    * @param productCode The new value for productCode
    * @param value The new value for value
+   * @param status The new value for status
    */
-  public OrderAvro(java.lang.String id, java.lang.String customerId, java.lang.String productCode, java.math.BigDecimal value) {
+  public OrderAvro(java.lang.String id, java.lang.String customerId, java.lang.String productCode, java.math.BigDecimal value, com.liriotech.purchaseorder.app.providers.kafka.avro.data.StatusEnum status) {
     this.id = id;
     this.customerId = customerId;
     this.productCode = productCode;
     this.value = value;
+    this.status = status;
   }
 
   public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
@@ -106,6 +109,7 @@ public class OrderAvro extends org.apache.avro.specific.SpecificRecordBase imple
     case 1: return customerId;
     case 2: return productCode;
     case 3: return value;
+    case 4: return status;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -118,6 +122,7 @@ public class OrderAvro extends org.apache.avro.specific.SpecificRecordBase imple
     case 1: customerId = value$ != null ? value$.toString() : null; break;
     case 2: productCode = value$ != null ? value$.toString() : null; break;
     case 3: value = (java.math.BigDecimal)value$; break;
+    case 4: status = (com.liriotech.purchaseorder.app.providers.kafka.avro.data.StatusEnum)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -191,6 +196,23 @@ public class OrderAvro extends org.apache.avro.specific.SpecificRecordBase imple
   }
 
   /**
+   * Gets the value of the 'status' field.
+   * @return The value of the 'status' field.
+   */
+  public com.liriotech.purchaseorder.app.providers.kafka.avro.data.StatusEnum getStatus() {
+    return status;
+  }
+
+
+  /**
+   * Sets the value of the 'status' field.
+   * @param value the value to set.
+   */
+  public void setStatus(com.liriotech.purchaseorder.app.providers.kafka.avro.data.StatusEnum value) {
+    this.status = value;
+  }
+
+  /**
    * Creates a new OrderAvro RecordBuilder.
    * @return A new OrderAvro RecordBuilder
    */
@@ -235,6 +257,7 @@ public class OrderAvro extends org.apache.avro.specific.SpecificRecordBase imple
     private java.lang.String customerId;
     private java.lang.String productCode;
     private java.math.BigDecimal value;
+    private com.liriotech.purchaseorder.app.providers.kafka.avro.data.StatusEnum status;
 
     /** Creates a new Builder */
     private Builder() {
@@ -263,6 +286,10 @@ public class OrderAvro extends org.apache.avro.specific.SpecificRecordBase imple
         this.value = data().deepCopy(fields()[3].schema(), other.value);
         fieldSetFlags()[3] = other.fieldSetFlags()[3];
       }
+      if (isValidValue(fields()[4], other.status)) {
+        this.status = data().deepCopy(fields()[4].schema(), other.status);
+        fieldSetFlags()[4] = other.fieldSetFlags()[4];
+      }
     }
 
     /**
@@ -286,6 +313,10 @@ public class OrderAvro extends org.apache.avro.specific.SpecificRecordBase imple
       if (isValidValue(fields()[3], other.value)) {
         this.value = data().deepCopy(fields()[3].schema(), other.value);
         fieldSetFlags()[3] = true;
+      }
+      if (isValidValue(fields()[4], other.status)) {
+        this.status = data().deepCopy(fields()[4].schema(), other.status);
+        fieldSetFlags()[4] = true;
       }
     }
 
@@ -449,6 +480,46 @@ public class OrderAvro extends org.apache.avro.specific.SpecificRecordBase imple
       return this;
     }
 
+    /**
+      * Gets the value of the 'status' field.
+      * @return The value.
+      */
+    public com.liriotech.purchaseorder.app.providers.kafka.avro.data.StatusEnum getStatus() {
+      return status;
+    }
+
+
+    /**
+      * Sets the value of the 'status' field.
+      * @param value The value of 'status'.
+      * @return This builder.
+      */
+    public com.liriotech.purchaseorder.app.providers.kafka.avro.data.OrderAvro.Builder setStatus(com.liriotech.purchaseorder.app.providers.kafka.avro.data.StatusEnum value) {
+      validate(fields()[4], value);
+      this.status = value;
+      fieldSetFlags()[4] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'status' field has been set.
+      * @return True if the 'status' field has been set, false otherwise.
+      */
+    public boolean hasStatus() {
+      return fieldSetFlags()[4];
+    }
+
+
+    /**
+      * Clears the value of the 'status' field.
+      * @return This builder.
+      */
+    public com.liriotech.purchaseorder.app.providers.kafka.avro.data.OrderAvro.Builder clearStatus() {
+      status = null;
+      fieldSetFlags()[4] = false;
+      return this;
+    }
+
     @Override
     @SuppressWarnings("unchecked")
     public OrderAvro build() {
@@ -458,6 +529,7 @@ public class OrderAvro extends org.apache.avro.specific.SpecificRecordBase imple
         record.customerId = fieldSetFlags()[1] ? this.customerId : (java.lang.String) defaultValue(fields()[1]);
         record.productCode = fieldSetFlags()[2] ? this.productCode : (java.lang.String) defaultValue(fields()[2]);
         record.value = fieldSetFlags()[3] ? this.value : (java.math.BigDecimal) defaultValue(fields()[3]);
+        record.status = fieldSetFlags()[4] ? this.status : (com.liriotech.purchaseorder.app.providers.kafka.avro.data.StatusEnum) defaultValue(fields()[4]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -498,6 +570,14 @@ public class OrderAvro extends org.apache.avro.specific.SpecificRecordBase imple
 
     out.writeString(this.value.toString());
 
+    if (this.status == null) {
+      out.writeIndex(0);
+      out.writeNull();
+    } else {
+      out.writeIndex(1);
+      out.writeEnum(this.status.ordinal());
+    }
+
   }
 
   @Override public void customDecode(org.apache.avro.io.ResolvingDecoder in)
@@ -513,8 +593,15 @@ public class OrderAvro extends org.apache.avro.specific.SpecificRecordBase imple
 
       this.value = new java.math.BigDecimal(in.readString());
 
+      if (in.readIndex() != 1) {
+        in.readNull();
+        this.status = null;
+      } else {
+        this.status = com.liriotech.purchaseorder.app.providers.kafka.avro.data.StatusEnum.values()[in.readEnum()];
+      }
+
     } else {
-      for (int i = 0; i < 4; i++) {
+      for (int i = 0; i < 5; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
           this.id = in.readString();
@@ -530,6 +617,15 @@ public class OrderAvro extends org.apache.avro.specific.SpecificRecordBase imple
 
         case 3:
           this.value = new java.math.BigDecimal(in.readString());
+          break;
+
+        case 4:
+          if (in.readIndex() != 1) {
+            in.readNull();
+            this.status = null;
+          } else {
+            this.status = com.liriotech.purchaseorder.app.providers.kafka.avro.data.StatusEnum.values()[in.readEnum()];
+          }
           break;
 
         default:

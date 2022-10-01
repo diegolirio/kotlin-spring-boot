@@ -4,14 +4,24 @@
 
 
 ### Run Applications + Infra
+
 > Uping Apps with InteliJ and infra with docker
+
 ```sh
 cd docker
 docker-compose -f docker-compose-only-infra.yml
 ```
+
 > Uping Apps and infra with docker
+
 ```sh
-cd docker
+cd purchase-order
+docker build -t liriotech/purchase-order .
+
+cd ../purchase-order-process
+docker build -t liriotech/purchase-order-process .
+
+cd ../docker
 docker-compose -f docker-compose-infra-and-apps.yml
 ```
 
