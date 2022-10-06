@@ -1,6 +1,7 @@
 package com.liriotech.purchaseorder.domain.usecases.create.workflow
 
 import org.slf4j.LoggerFactory
+import reactor.core.publisher.Mono
 
 class OrderExecutorChain<Input> private constructor() {
 
@@ -41,8 +42,8 @@ class OrderExecutorChain<Input> private constructor() {
     }
 
 
-    fun apply(originalValue: Input): Input {
-        val value: Input = originalValue
+    fun apply(originalValue: Mono<Input>): Mono<Input> {
+        val value: Mono<Input> = originalValue
         log.info("m=apply, message=It is starting execute the Order workflow, input=$originalValue ")
         try {
             executors.forEach {

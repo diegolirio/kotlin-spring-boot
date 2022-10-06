@@ -3,7 +3,6 @@ package com.liriotech.purchaseorder.domain.usecases.create
 import com.liriotech.purchaseorder.domain.entities.OrderEntity
 import com.liriotech.purchaseorder.domain.providers.CreateOrderProvider
 import com.liriotech.purchaseorder.domain.providers.NotifyChangesProvider
-import com.liriotech.purchaseorder.domain.usecases.create.workflow.ContextPayload
 import com.liriotech.purchaseorder.domain.usecases.create.workflow.OrderExecutorChain
 import com.liriotech.purchaseorder.domain.usecases.create.workflow.steps.*
 import reactor.core.publisher.Mono
@@ -23,7 +22,8 @@ class CreateOrderUsecase(
             .and(CreateOrderStep(createOrderProvider))
             .and(NotifyChangesStep(notifyChangesProvider))
             .doFinally(UnlockStep())
-            .apply(ContextPayload(orderEntity))
-            .let { Mono.just(it.payload) }
+            .apply(
+                Mono.just(orderEntity)
+            )
 
 }

@@ -1,26 +1,26 @@
 package com.liriotech.purchaseorder.domain.usecases.create.workflow.steps
 
 import com.liriotech.purchaseorder.domain.entities.OrderEntity
-import com.liriotech.purchaseorder.domain.usecases.create.workflow.ContextPayload
 import com.liriotech.purchaseorder.domain.usecases.create.workflow.OrderStepExecution
 import com.liriotech.purchaseorder.domain.usecases.create.workflow.steps.exception.StopStepExecption
+import reactor.core.publisher.Mono
 
-class UnlockStep : OrderStepExecution<ContextPayload<OrderEntity>>, LockKey {
+class UnlockStep : OrderStepExecution<OrderEntity>, LockKey {
 
-    override fun doExec(input: ContextPayload<OrderEntity>): ContextPayload<OrderEntity> {
-        if(LockProcess.validate(getKey(input))) {
-            LockProcess.unlock(
-                key = getKey(input),
-                clazz = OrderEntity::class.java
-            ).let {
-                if(it.first && !LockProcess.validate(getKey(input))) {
-                    return input
-                }
-                throw StopStepExecption("It was not possible to remove order in processing")
+    override fun doExec(input: Mono<OrderEntity>): Mono<OrderEntity> =
+        input.map {
+            if(!LockProcess.validate(getKey(it))) {
+                throw StopStepExecption("Order is not processing")
             }
-        } else {
-            throw StopStepExecption("Order is not processing")
+            LockProcess.unlock(
+                key = getKey(it),
+                clazz = OrderEntity::class.java
+            ).let { result ->
+                if(!result.first || LockProcess.validate(getKey(it))) {
+                    throw StopStepExecption("It was not possible to remove order in processing")
+                }
+                it
+            }
         }
-    }
 
 }
