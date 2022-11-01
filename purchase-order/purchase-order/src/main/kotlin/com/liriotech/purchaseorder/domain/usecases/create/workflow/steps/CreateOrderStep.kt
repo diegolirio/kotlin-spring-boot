@@ -31,15 +31,13 @@ class CreateOrderStep(
 //                    }
 //            }
 //        return run.block()!!
-    override fun doExec(input: Mono<OrderEntity>): Mono<OrderEntity> {
-        return input.flatMap {
-            it.copy(status = StatusEnum.PENDING)
-                .run {
-                    //ContextPayload(this)
-                    provider
-                        .create(this)
-                }
+
+    override fun doExec(input: Mono<OrderEntity>): Mono<OrderEntity> =
+        input.flatMap {
+            provider.create(
+                it.copy(status = StatusEnum.PENDING)
+            )
         }
-    }
+
 
 }
