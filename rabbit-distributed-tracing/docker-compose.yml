@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+
+  zipkin:
+    image: openzipkin/zipkin
+    hostname: zipkin
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: '0.5GB'
+    ports:
+      - "9411:9411"
