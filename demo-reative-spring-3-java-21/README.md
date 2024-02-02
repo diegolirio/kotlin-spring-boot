@@ -39,5 +39,12 @@ Project Reactor has two types of Publisher:
 
 ### Flux Create Generate
 
+> Programmatically create a Flux by generating signals 
+>  one-by-one via a consumer callback and some state. 
+> The stateSupplier may return null.
 
+Util para lidar com fonte de dados sincronas,
+controlando de forma detalhada e sequencial.
+
+![img.png](img.png)
 
