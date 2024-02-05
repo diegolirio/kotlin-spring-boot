@@ -3,11 +3,11 @@
 > This POC (Proof of Concept) aims to compare two ways of connecting to  Relacional Database. 
 > Both we're going to use Spring Framework, the first one is the Spring-Data-JPA and the second one is Spring-Data-R2DBC.   
    
-`Spring Data JPA`: Tradicional way to connect to relacional databases, **blocking manner**.
-`Spring Data R2DBC`: R2DBC is the acronym which means Reactive Relational Database Connectivity, the name says everything, reactive programming to Realtional DB, i.e. **non-blocking manner**. Suitable for reactive programming and high-performance scenarios.
+- `Spring Data JPA`: Tradicional way to connect to relacional databases, **blocking manner**.   
+- `Spring Data R2DBC`: R2DBC is the acronym which means Reactive Relational Database Connectivity, the name says everything, reactive programming to Realtional DB, i.e. **non-blocking manner**. Suitable for reactive programming and high-performance scenarios.
 
 
-## 10 Milion registers on Database
+## 11 Milion registers on Database
 
 #### JPA
 
@@ -23,7 +23,7 @@
 **BAD** :: Perfomed a find of `11 milion` on DB in more than `50 minutes, it was interrupted`.   
 Memory   
 **GREAT** Memory, consuming `0.8gb`   
-<img src="img/image-2.png" alt="image2" style="width:800px;"/>
+<img src="img/image-2.png" alt="image2" style="width:600px;"/>
 
 #### R2DBC
 
