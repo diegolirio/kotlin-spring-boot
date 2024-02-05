@@ -12,23 +12,24 @@
 #### JPA
 
 > No Paged
-**GREAT** :: Perfomed a find of `11 milion` on DB in `220.693 miliseconds` (221 sec or approximately 2 minute). 
+   
+**GREAT** :: Perfomed a find of `11 milion` on DB in `220.693 miliseconds` (221 sec or approximately 2 minute).    
 ![Alt text](img/image.png)
-**BAD** Memory starting with `6.4gb` and finished `11.1gb`, consuming `4.6gb`
+**BAD** Memory starting with `6.4gb` and finished `11.1gb`, consuming `4.6gb`   
 ![11M-JPA-NoPaged](img/11M-JPA-NoPaged.gif)
 
 > Paged
 
 **BAD** :: Perfomed a find of `11 milion` on DB in more than `50 minutes, it was interrupted`.   
-Memory
-**GREAT** Memory, consuming `0.8gb`
+Memory   
+**GREAT** Memory, consuming `0.8gb`   
 <img src="img/image-2.png" alt="image2" style="width:800px;"/>
 
 #### R2DBC
 
-**OK** :: Perfomed a find of `11 milion` on DB in `562.637 miliseconds` (562 sec or approximately 9m 01m). 
+**OK** :: Perfomed a find of `11 milion` on DB in `562.637 miliseconds` (562 sec or approximately 9m 01m).    
 ![R2DBC Finding 10M on DB](img/image-1.png)
-**GREAT** :: Memory starting with `6.3gb` and finished `7.1gb`, consuming `0.8gb`
+**GREAT** :: Memory starting with `6.3gb` and finished `7.1gb`, consuming `0.8gb`   
 ![11M R2DBC batchsize 1k](img/11M-R2DBC-batchsize-1k.gif)
 
 . 
