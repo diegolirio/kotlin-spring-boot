@@ -7,7 +7,7 @@
 - `Spring Data R2DBC`: R2DBC is the acronym which means Reactive Relational Database Connectivity, the name says everything, reactive programming to Realtional DB, i.e. **non-blocking manner**. Suitable for reactive programming and high-performance scenarios.
 
 
-## 11 Milion registers on Database
+## 11 Million registers on Database
 
 #### JPA
 
@@ -33,7 +33,7 @@
 
 . 
 
-## 20 Milion registers on Database
+## 20 Million registers on Database
 
 #### JPA
 
