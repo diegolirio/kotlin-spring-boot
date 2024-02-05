@@ -12,19 +12,23 @@
 #### JPA
 
 > No Paged
-Perfomed a find of `11 milion` on DB in `220.693 miliseconds` (221 sec or approximately 2 minute). 
+**GREAT** :: Perfomed a find of `11 milion` on DB in `220.693 miliseconds` (221 sec or approximately 2 minute). 
 ![Alt text](image.png)
-Memory starting with `6.4gb` and finished `11.1gb`, consuming `4.6gb`
+**BAD** Memory starting with `6.4gb` and finished `11.1gb`, consuming `4.6gb`
 ![11M-JPA-NoPaged](11M-JPA-NoPaged.gif)
 
 > Paged
 
+**BAD** :: Perfomed a find of `11 milion` on DB in more than `50 minutes, it was interrupted`.   
+Memory
+**GREAT** Memory, consuming `0.8gb`
+![Alt text](image-2.png)
 
 #### R2DBC
 
-Perfomed a find of `11 milion` on DB in `562.637 miliseconds` (562 sec or approximately 9m 01m). 
+**OK** :: Perfomed a find of `11 milion` on DB in `562.637 miliseconds` (562 sec or approximately 9m 01m). 
 ![R2DBC Finding 10M on DB](image-1.png)
-Memory starting with `6.3gb` and finished `7.1gb`, consuming `0.8gb`
+**GREAT** :: Memory starting with `6.3gb` and finished `7.1gb`, consuming `0.8gb`
 ![11M R2DBC batchsize 1k](11M-R2DBC-batchsize-1k.gif)
 
 . 
@@ -41,7 +45,7 @@ Memory starting with `6.3gb` and finished `7.1gb`, consuming `0.8gb`
 The following table can help us to make a decision
 ![table-with-some-infos.png](table-with-some-infos.png)
 
-
+***The best way is to use R2DBC!***
 
 
 Ref.:
