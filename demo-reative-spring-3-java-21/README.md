@@ -23,7 +23,7 @@ Project Reactor has two types of Publisher:
 `Flux.fromIterable` Emit elements from List<T>   
 `Flux.map` Emit one element at a time to convert to other type of element   
 `Flux.flatMap` Emit one element at a time to convert to other type of element   
-`Flux.just` Create a Flux that emits elements and then completes.      
+`Flux.just` varags => Create a Flux that emits elements and then completes.      
 `Flux.fromArray`   
 `Flux.fromStream`   
 `Flux.range`   
@@ -48,3 +48,23 @@ controlando de forma detalhada e sequencial.
 
 ![img.png](img.png)
 
+
+
+
+
+## POC Custody
+
+
+https://www.baeldung.com/spring-data-r2dbc
+https://github.com/eugenp/tutorials/tree/master/spring-reactive-modules/spring-reactive-data
+
+https://medium.com/pictet-technologies-blog/reactive-programming-with-spring-data-r2dbc-ee9f1c24848b
+
+https://www.baeldung.com/spring-data-webflux-pagination
+
+https://drive.google.com/drive/u/0/folders/10NjBHnGLw1Qdh4gXxZgHYCLfb3jqwkIJ
+
+https://spring.io/guides/gs/accessing-data-r2dbc/
+https://github.com/oracle/oracle-r2dbc
+
+https://juarezjunior.medium.com/getting-started-with-r2dbc-reactive-relational-database-connectivity-and-the-oracle-r2dbc-driver-2c50ab1d9e66

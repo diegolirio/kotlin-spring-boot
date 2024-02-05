@@ -1,0 +1,21 @@
+jakarta:
+  persistence:
+    jdbc:
+      driver: oracle.jdbc.OracleDriver
+      url: jdbc:oracle:thin:@//localhost:1521/XEPDB1
+      user: dbuser
+      password: dbuser
+
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@//localhost:1521/XEPDB1
+    username: dbuser
+    password: dbuser
+    driverClassName: oracle.jdbc.OracleDriver
+  jpa:
+    properties:
+      hibernate:
+        default_schema: dbuser
+        ddl-auto: update
+    #database-platform: org.hibernate.dialect.Oracle12cDialect
+    show-sql: false
