@@ -21,7 +21,6 @@
 > Paged
 
 **BAD** :: Perfomed a find of `11 milion` on DB in more than `50 minutes, it was interrupted`.   
-Memory   
 **GREAT** Memory, consuming `0.8gb`   
 <img src="img/image-2.png" alt="image2" style="width:600px;"/>
 
@@ -46,7 +45,7 @@ Memory
 The following table can help us to make a decision
 ![table-with-some-infos.png](img/table-with-some-infos.png)
 
-***The best way is to use R2DBC!***
+***The best way is R2DBC!***
 
 
 Ref.:
