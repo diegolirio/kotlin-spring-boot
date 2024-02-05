@@ -22,7 +22,7 @@
 **BAD** :: Perfomed a find of `11 milion` on DB in more than `50 minutes, it was interrupted`.   
 Memory
 **GREAT** Memory, consuming `0.8gb`
-![Alt text](image-2.png)
+<img src="image-2.png" alt="image2" style="width:200px;"/>
 
 #### R2DBC
 
