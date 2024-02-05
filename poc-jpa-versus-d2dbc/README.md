@@ -11,13 +11,21 @@
 
 #### JPA
 
-Perfomed a find of `11 milion` on DB in `88.879 miliseconds` (89 sec or approximately 1 minute and half). 
-![JPA Finding 10M](10M-JPA.png)
+> No Paged
+Perfomed a find of `11 milion` on DB in `220.693 miliseconds` (221 sec or approximately 2 minute). 
+![Alt text](image.png)
+Memory starting with `6.4gb` and finished `11.1gb`, consuming `4.6gb`
+![11M-JPA-NoPaged](11M-JPA-NoPaged.gif)
+
+> Paged
+
 
 #### R2DBC
 
-Perfomed a find of `11 milion` on DB in `128.922 miliseconds` (129 sec or approximately 2 minutes and 10 sec). 
-![R2DBC Finding 10M on DB](image.png)
+Perfomed a find of `11 milion` on DB in `562.637 miliseconds` (562 sec or approximately 9m 01m). 
+![R2DBC Finding 10M on DB](image-1.png)
+Memory starting with `6.3gb` and finished `7.1gb`, consuming `0.8gb`
+![11M R2DBC batchsize 1k](11M-R2DBC-batchsize-1k.gif)
 
 . 
 
