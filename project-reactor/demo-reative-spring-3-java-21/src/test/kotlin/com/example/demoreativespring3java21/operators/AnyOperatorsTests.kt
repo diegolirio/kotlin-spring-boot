@@ -1,4 +1,4 @@
-package com.example.demoreativespring3java21
+package com.example.demoreativespring3java21.operators
 
 import org.junit.jupiter.api.Test
 import reactor.core.publisher.Flux
@@ -6,7 +6,7 @@ import reactor.test.StepVerifier
 import java.time.Duration
 import java.util.stream.Stream
 
-class ReactorOperatorTests {
+class AnyOperatorsTests {
 
     @Test
     fun fluxJust() {

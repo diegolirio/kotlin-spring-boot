@@ -1,14 +1,12 @@
-package com.example.demoreativespring3java21
+package com.example.demoreativespring3java21.operators
 
 import org.junit.jupiter.api.Test
 import reactor.core.publisher.Flux
-import reactor.core.publisher.FluxSink
 import reactor.test.StepVerifier
 import java.io.BufferedReader
 import java.io.FileReader
-import java.util.concurrent.CompletableFuture
 
-class FluxGenerateTest {
+class GenerateOperatorTest {
 
     @Test
     fun generate() {

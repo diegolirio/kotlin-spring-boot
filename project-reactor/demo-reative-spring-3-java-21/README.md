@@ -47,4 +47,18 @@ Util para lidar com fonte de dados sincronas,
 controlando de forma detalhada e sequencial.
 
 ![img.png](img.png)
+    
+There are two type of Operators, `Upstream` and `Downstream`. Upstream are operators that emits 
+elements, as we saw above `just`, `fromIterable`, `fromStream`, `empty`, `defer`.    
+Downstream we're going to start seeing now, but basically are operators that consumes the data emitted by any publisher.   
+In summary, Downstream are subscribers and Upstream are publishers. 
+
+The first Downstream operator will be the `take`.    
+
+### Take
+
+![img_1.png](img_1.png)
+   
+
+![img_2.png](img_2.png)
 

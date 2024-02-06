@@ -1,4 +1,4 @@
-package com.example.demoreativespring3java21
+package com.example.demoreativespring3java21.operators
 
 import org.junit.jupiter.api.Test
 import reactor.core.publisher.Flux
@@ -8,7 +8,7 @@ import java.io.BufferedReader
 import java.io.FileReader
 import java.util.concurrent.CompletableFuture
 
-class FluxCreateOneTest {
+class CreateOperatorTest {
 
     @Test
     fun readFileTest() {
