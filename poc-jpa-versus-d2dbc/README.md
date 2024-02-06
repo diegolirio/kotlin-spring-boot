@@ -46,7 +46,11 @@ The following table can help us to make a decision
 ![table-with-some-infos.png](img/table-with-some-infos.png)
 
 ***The best way is R2DBC!***
-
+    
+JPA no paged - `GREAT` response time and `BAD` memory consumption    
+JPA paged - `BAD` response time and `GREAT` memory consumption   
+R2DBC - `OK` response time and `GREAT` memory consumption   
+   
 
 Ref.:
 
