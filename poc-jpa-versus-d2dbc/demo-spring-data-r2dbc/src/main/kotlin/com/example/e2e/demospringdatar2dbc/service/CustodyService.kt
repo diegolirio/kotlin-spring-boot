@@ -24,33 +24,21 @@ class CustodyService(
         log.info("m=updatePositions, step=init")
         val start = System.currentTimeMillis()
 
+
         repository.findAll()
-                .buffer(batchSize)
-                //.collectList()
-                .flatMap { list ->
-                    Flux.fromIterable(list).flatMap { custody -> calc(custody) }
-                    Mono.just(list.size.toLong())
-                }
+                .doOnNext(this::calc)
+                .doOnNext(this::send)
+                .collectList()
+                .flatMap { list -> Mono.just(list.size) }
                 .doOnNext { batchSizeUpdated -> totalUpdated += batchSizeUpdated }
-                .doOnComplete {
+                .doFinally {
                     log.info("Processing time = ${System.currentTimeMillis() - start}, positions_updated = $totalUpdated")
                 }
                 .subscribe()
+    }
 
-//        repository.findAll()
-//                .buffer(batchSize)
-//                .flatMap { custodies ->
-//                    Flux.fromIterable(custodies)
-//                        .flatMap { custody -> calc(custody) }
-//                        .collectList()
-//                        .map { it.size.toLong() }
-//                }
-//                .takeUntil { it == 0L }
-//                .doOnNext { batchSizeUpdated -> totalUpdated += batchSizeUpdated }
-//                .doOnComplete { log.info("Processing time = ${System.currentTimeMillis() - start}, positions_updated = $totalUpdated") }
-//                .then(Mono.just(totalUpdated))
-//                .subscribe()
-
+    private fun send(custodyEntity: CustodyEntity) : Mono<CustodyEntity> {
+        return Mono.just(custodyEntity)
     }
 
     private fun calc(custody: CustodyEntity): Mono<CustodyEntity> {
