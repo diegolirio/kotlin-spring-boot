@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  oracle:
+    image: gvenzl/oracle-xe:18-slim
+    #image: gvenzl/oracle-free
+    container_name: oracledatabase
+    ports:
+      - 1521:1521
+#    environment:
+#      ORACLE_PASSWORD: root
+##      ORACLE_DATABASE: reactor
+##      APP_USER: dbuser
+##      APP_USER_PASSWORD: dbuser
+    environment:
+      ORACLE_RANDOM_PASSWORD: root
+      APP_USER: dbuser
+      APP_USER_PASSWORD: dbuser

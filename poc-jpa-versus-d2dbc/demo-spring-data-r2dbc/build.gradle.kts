@@ -5,10 +5,9 @@ plugins {
 	id("io.spring.dependency-management") version "1.1.4"
 	kotlin("jvm") version "1.9.22"
 	kotlin("plugin.spring") version "1.9.22"
-	kotlin("plugin.jpa") version "1.9.22"
 }
 
-group = "com.example"
+group = "com.example.e2e"
 version = "0.0.1-SNAPSHOT"
 
 java {
@@ -22,15 +21,15 @@ repositories {
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
-	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
-	runtimeOnly("com.oracle.database.jdbc:ojdbc11")
-	//runtimeOnly("io.r2dbc:r2dbc-h2")
 	compileOnly("io.projectreactor.tools:blockhound:1.0.8.RELEASE")
+	runtimeOnly("com.oracle.database.jdbc:ojdbc11")
+	runtimeOnly("com.oracle.database.r2dbc:oracle-r2dbc")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
 }
