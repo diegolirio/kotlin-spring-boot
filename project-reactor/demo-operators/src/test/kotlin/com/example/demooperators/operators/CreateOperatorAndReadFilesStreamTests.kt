@@ -1,4 +1,4 @@
-package com.example.demoreativespring3java21.operators
+package com.example.demooperators.operators
 
 import org.junit.jupiter.api.Test
 import reactor.core.publisher.Flux
@@ -8,7 +8,7 @@ import java.io.BufferedReader
 import java.io.FileReader
 import java.util.concurrent.CompletableFuture
 
-class CreateOperatorTest {
+class CreateOperatorAndReadFilesStreamTests {
 
     @Test
     fun readFileTest() {

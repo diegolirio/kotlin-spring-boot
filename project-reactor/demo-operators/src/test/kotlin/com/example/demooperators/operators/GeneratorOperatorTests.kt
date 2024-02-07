@@ -1,4 +1,4 @@
-package com.example.demoreativespring3java21.operators
+package com.example.demooperators.operators
 
 import org.junit.jupiter.api.Test
 import reactor.core.publisher.Flux
@@ -6,7 +6,7 @@ import reactor.test.StepVerifier
 import java.io.BufferedReader
 import java.io.FileReader
 
-class GenerateOperatorTest {
+class GeneratorOperatorTests {
 
     @Test
     fun generate() {
@@ -17,7 +17,7 @@ class GenerateOperatorTest {
                 BufferedReader(FileReader(fileAbsolutePath))
             },
             {
-                reader, sink ->
+                    reader, sink ->
                 val line = reader.readLine()
                 if (line != null) {
                     sink.next(reader)
@@ -44,11 +44,11 @@ class GenerateOperatorTest {
 
         StepVerifier.create(flux)
             .expectNext("Line one",
-                    "Line two",
-                    "Line 3",
-                    "Line Four",
-                    "Line 5",
-                    "Line 6")
+                "Line two",
+                "Line 3",
+                "Line Four",
+                "Line 5",
+                "Line 6")
             .verifyComplete()
     }
 
