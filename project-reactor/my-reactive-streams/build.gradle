@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+group = 'ps.investments.corf.custody'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation('org.reactivestreams:reactive-streams:1.0.4')
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}

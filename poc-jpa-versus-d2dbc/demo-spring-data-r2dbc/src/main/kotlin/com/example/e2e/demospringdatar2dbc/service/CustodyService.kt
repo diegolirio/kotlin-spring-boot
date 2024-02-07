@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
-import kotlin.time.Duration
 
 @Service
 class CustodyService(
@@ -24,10 +23,9 @@ class CustodyService(
         log.info("m=updatePositions, step=init")
         val start = System.currentTimeMillis()
 
-
         repository.findAll()
                 .doOnNext(this::calc)
-                .doOnNext(this::send)
+                .doOnNext(this::updatePosition)
                 .collectList()
                 .flatMap { list -> Mono.just(list.size) }
                 .doOnNext { batchSizeUpdated -> totalUpdated += batchSizeUpdated }
@@ -37,7 +35,7 @@ class CustodyService(
                 .subscribe()
     }
 
-    private fun send(custodyEntity: CustodyEntity) : Mono<CustodyEntity> {
+    private fun updatePosition(custodyEntity: CustodyEntity) : Mono<CustodyEntity> {
         return Mono.just(custodyEntity)
     }
 
