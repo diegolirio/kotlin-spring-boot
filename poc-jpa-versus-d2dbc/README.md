@@ -46,7 +46,11 @@ The following table can help us to make a decision
 ![table-with-some-infos.png](img/table-with-some-infos.png)
 
 ***The best way is R2DBC!***
-
+    
+**JPA no paged** - `GREAT` response time and `BAD` memory consumption    
+**JPA paged** - `BAD` response time and `GREAT` memory consumption   
+**R2DBC** - `OK` response time and `GREAT` memory consumption   
+   
 
 Ref.:
 
@@ -54,5 +58,5 @@ Ref.:
 [R2DBC](https://r2dbc.io/)   
 [Spring Data JPA, Spring Data R2DBC & Hibernate Reactive](https://rathoreaparna678.medium.com/spring-data-jpa-spring-data-r2dbc-hibernate-reactive-49e367ab7552#:~:text=%2D%20Spring%20Data%20JPA%20is%20widely,programming%20and%20high%2Dperformance%20scenarios)      
 [JDBC vs. R2DBC vs. Spring JDBC vs. Spring Data JDBC](https://www.baeldung.com/jdbc-vs-r2dbc-vs-spring-jdbc-vs-spring-data-jdbc)    
-
+[spring-data](https://docs.spring.io/spring-data/relational/reference/repositories/query-methods-details.html)   
 
