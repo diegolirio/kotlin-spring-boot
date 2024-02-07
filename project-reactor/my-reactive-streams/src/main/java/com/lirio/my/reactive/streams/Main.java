@@ -1,4 +1,4 @@
-package com.lirio.my.reactive.streams.main;
+package com.lirio.my.reactive.streams;
 
 public class Main {
     public static void main(String[] args) {
