@@ -1,0 +1,9 @@
+POST http://localhost:8080/simulation
+Content-Type: application/json
+
+{
+  "expression": "not(block:academic and circuit:lifts)",
+  "namespace": "smart-grid",
+  "type": "Resource",
+  "enrich": "true"
+}
