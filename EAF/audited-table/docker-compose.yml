@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  db:
+    image: postgres:14
+    container_name: postgres_audit_poc
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: audited
+      POSTGRES_PASSWORD: audited
+      POSTGRES_DB: accounts

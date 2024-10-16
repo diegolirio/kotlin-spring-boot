@@ -1,0 +1,3 @@
+
+INSERT INTO PRODUCT(id, valor,nome) VALUES (1, 999.99, 'IPHONE')
+

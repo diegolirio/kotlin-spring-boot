@@ -1,0 +1,8 @@
+version: "3.7"
+services:
+
+  storage:
+    image: mcr.microsoft.com/azure-blob-storage
+    restart: always
+    ports:
+      - "10000:10000"
