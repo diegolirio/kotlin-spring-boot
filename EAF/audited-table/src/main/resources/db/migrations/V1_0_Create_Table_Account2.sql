@@ -1,4 +1,4 @@
-CREATE TABLE account2
+CREATE TABLE account
 (
     "id"         uuid PRIMARY KEY         NOT NULL,
     "name"       varchar(200)             NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE account2
     "updated_at" timestamp with time zone
 );
 
-CREATE TABLE account2_audit
+CREATE TABLE account_audit
 (
     "id"             uuid PRIMARY KEY         NOT NULL,
     "employee_email" varchar(100)             NOT NULL,
@@ -27,3 +27,12 @@ CREATE TABLE account2_audit
     "created_at"     timestamp with time zone NOT NULL DEFAULT NOW(),
     "updated_at"     timestamp with time zone
 );
+
+create table revinfo
+(
+    rev integer not null primary key,
+    revtstmp bigint
+);
+
+create sequence revinfo_seq increment by 1;
+
