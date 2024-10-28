@@ -52,15 +52,31 @@ class CustomerUsecase(
 
     private val log = LoggerFactory.getLogger(javaClass)
 
+//    fun getList(): Flux<Customer> {
+//        return repository.findAll()
+//            .delayElements(Duration.ofSeconds(5))
+//            .log()
+//            .doOnNext { log.info("Calculando, Enviando para um Kafka-Topic") }
+//            .doOnNext { log.info("thread=${Thread.currentThread().name}, virtual=${Thread.currentThread().isVirtual}") }
+//            .subscribeOn(Schedulers.parallel())
+//            // parallel ----> CPU
+//            // boundedElastic ---> saida da infraestrutura
+//    }
+
     fun getList(): Flux<Customer> {
         return repository.findAll()
+            .filter { it.name == "Lucas" }
             .delayElements(Duration.ofSeconds(5))
-            .log()
-            .doOnNext { log.info("Calculando, Enviando para um Kafka-Topic") }
-            .doOnNext { log.info("thread=${Thread.currentThread().name}, virtual=${Thread.currentThread().isVirtual}") }
-            .subscribeOn(Schedulers.parallel())
-            // parallel ----> CPU
-            // boundedElastic ---> saida da infraestrutura
+            .doOnNext { log.info("Calculando.... ${Thread.currentThread().getName()}, virtual=${Thread.currentThread().isVirtual}" ) }
+            .subscribeOn(Schedulers.boundedElastic())
+            .doOnNext { log.info("Enviando para um Kafka-Topic.... ${Thread.currentThread().getName()}, virtual=${Thread.currentThread().isVirtual}" ) }
+            .subscribeOn(Schedulers.single())
+
+//        try {
+//            Thread.sleep(2000)
+//        } catch (e: InterruptedException) {
+//            e.printStackTrace()
+//        }
     }
 
 }
