@@ -1,0 +1,83 @@
+<html>
+<head>
+    <title>Teste</title>
+</head>
+<body id="app">
+
+<div>{{ message }}</div>
+<button @click="changeMessage">Click to Change Message</button>
+<br/><br/>
+<hr/>
+
+<h1>Upload</h1>
+
+<button @click="upload">Upload</button>
+<hr/>
+<br/>
+<button @click="me">Me</button>
+
+</body>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+    const { createApp, ref } = Vue
+
+    createApp({
+        setup() {
+            const message = ref('Hello vue!')
+
+            // Function to change the message
+            const changeMessage = () => {
+                message.value = 'Message has been changed!'
+            }
+
+            //const url = 'http://localhost:8085/hello';
+            const url = 'http://localhost:8081/v1/accounts';
+            const token = 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJwVHVTWC1mRm9jLTBHeGhXYVBjbkNCdGlZLWdBY2hpckh5UzFOWWRzNnBjIn0.eyJleHAiOjE3MzA0NjU0NjIsImlhdCI6MTczMDQ2NTE2MiwianRpIjoiODA0ZDBmNGYtNzU2Zi00ZWIwLWJhNTEtOWY5YzBkYmJhNjIxIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9zZXIiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMzgxNDRmMDUtZDBkOC00ODUzLWFlNTctY2JmYjJhYmM1ZTYwIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiYWNjb3VudHNfc2VyX2NsaWVudCIsInNlc3Npb25fc3RhdGUiOiJkNmRjZWQ1Ni1jNmU1LTRhODgtODQwMy1jZDQ5YTJhYWZmZTkiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtZWFmIiwib2ZmbGluZV9hY2Nlc3MiLCJGSUxFX1VQTE9BRCIsIlBBSVNfSU5GT1ZJQV8wOF9ORklfQVBQUk9WRUQiLCJBQ0NPVU5UX0NSRUFURSIsIlBBSVNfSU5GT1ZJQV8wOF9ORklfVVBMT0FEIiwidW1hX2F1dGhvcml6YXRpb24iLCJQQUlTX0lORk9WSUFfMDhfTkZJX0RPV05MT0FEIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiZDZkY2VkNTYtYzZlNS00YTg4LTg0MDMtY2Q0OWEyYWFmZmU5IiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJNYXJjZWxvIE1hcmluaG8gRUFGIiwicHJlZmVycmVkX3VzZXJuYW1lIjoidGVzdDI0QGdydXBvc2JmLmNvbS5iciIsImdpdmVuX25hbWUiOiJNYXJjZWxvIE1hcmluaG8iLCJmYW1pbHlfbmFtZSI6IkVBRiIsImVtYWlsIjoidGVzdDI0QGdydXBvc2JmLmNvbS5iciJ9.G7C7BZU5AkuYjsRt5M5FYSdRCEvw1Rc4K0ut3GbuHqlVyjmb_0e0Q6dWUot4PbysprH-klYYjSveQLn_XsXIk1n43AVdeRBEDhe4brjJQEVQV04vCW8RdyKiyr4MzBChd-bOiQADj4Sp5zEvaYiEp3UdKXvL0RN3GwFZCVrzKqreUEdkA6Ek_794NVpUF6VpHTkp73GmqlfZcjvTZdAwF-rctOmButdhYT_Yrypk9WXh7-gzS0o0E8hAtMgPupIMRD1APenAxbtUrhvx28X90f7-RU4AIjzh9S8_Xi1feDfaONKtqBC6aI7U2_GfeLOD_zbVrvPTNmPWkUdQ45iWiw';
+
+            const upload = () => {
+
+                const formData = new FormData();
+                formData.append('notice', 'PAIS');
+                formData.append('project', '08');
+                formData.append('infrastructure', 'RT');
+                formData.append('location', '1100015');
+                formData.append('equipment', 'COS');
+                formData.append('fileType', 'NFI');
+                formData.append('files', new File([""], "/home/lirio/Documents/GitHub/ser-accounts/local/accounts-test.csv"));
+
+                fetch(url+"/upload", {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': token
+                    },
+                    body: formData
+                })
+                    .then(response => response.json())
+                    .then(data => console.log(data))
+                    .catch(error => console.error('Error:', error));
+
+            }
+
+            const me = () => {
+
+                fetch(url+"/me", {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': token
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => console.log(data))
+                    .catch(error => console.error('Error:', error));
+            }
+
+            return {
+                message,
+                changeMessage,
+                upload,
+                me
+            }
+        },
+    }).mount('#app')
+</script>
+</html>
