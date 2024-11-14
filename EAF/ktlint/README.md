@@ -32,5 +32,9 @@ Select `Distract free (recommended)`, click `Apply` and `OK` button.
 
 ![](./doc/ktlint-3.png)
 
+Tips:
+
+[WildCard](https://www.jetbrains.com/help/idea/creating-and-optimizing-imports.html#automatically-add-import-statements)   
+
 
 
